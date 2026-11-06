@@ -33,3 +33,32 @@ than the 600-row table, and audits recompute reused rows.
 - **Descriptive:** an evaluation breakdown (cold start, verification, audits, steady-state
   recompute), plus `semantic_trusted`'s count as the ceiling for what reuse alone can save.
 - **Controls C1 and C2, as before.**
+
+## Result (appended after the run; the criteria above are untouched)
+
+Controls passed. **S1″ PASS, E3 FAIL, E4 FAIL.** The prediction recorded before the run held.
+Full verdict in `results/run3/verdict.txt`.
+
+| Realistic mix, expensive evaluations (median) | Total | Compute | Verify | Audit |
+|---|---|---|---|---|
+| content (Bazel-style, unsharded) | 17,536 | 17,536 | 0 | 0 |
+| content_sharded (best baseline) | **940** | 940 | 0 | 0 |
+| semantic_trusted (ceiling for reuse) | 754 (0.80×) | 754 | 0 | 0 |
+| targeted_a25 | 1,523 (1.62×) | 754 | 608 | 162 |
+
+- **Semantic reuse saves at most 20% over a well-sharded content-addressed baseline on the
+  realistic mix, and 0% on relevant-only.** Even trusted completely, it only reaches the E3 bound.
+- **Black-box first-use verification costs 608 expensive evaluations**, about one full recompute
+  of the table. That is three times the total reuse saving over 25 steps.
+- **Audits cost little** (113–183) when targeted to declaration-enabled reuse.
+
+## Reading
+
+- **The efficiency thesis is not supported in Lab 002** (three runs, three efficiency failures).
+  Good content-addressed sharding already captures most of the reuse, so declared semantics add
+  little on top.
+- **The safety thesis is supported in all three runs:** 0 stale outputs from detectable false
+  declarations, and rare ones limited by audits.
+- Phase B found agents declare semantics accurately (144/144), and found static reading beats
+  black-box sampling. A verifier based on review rather than sampling would cut the 608 to
+  roughly one call, but that cannot rescue E3 here: the reuse ceiling itself is 0.80.
