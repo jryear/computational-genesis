@@ -48,8 +48,38 @@ def table(rng, n):
     return rows
 
 
+def literals(fn):
+    """White-box: string and number constants in the function source (answer key only)."""
+    import ast, inspect, textwrap
+    strs, nums = set(), set()
+    for node in ast.walk(ast.parse(textwrap.dedent(inspect.getsource(fn)))):
+        if isinstance(node, ast.Constant):
+            if isinstance(node.value, str) and 0 < len(node.value) < 40:
+                strs.add(node.value)
+            elif isinstance(node.value, (int, float)) and not isinstance(node.value, bool):
+                nums.add(node.value)
+    return strs, nums
+
+
 def truth(fn, trials=400, seed=0):
     rng = random.Random(seed)
+    strs, nums = literals(fn)
+    extra_memo = sorted(strs) + [s + "45" for s in strs if len(s) < 6] + ["net400", "net-5"]
+    extra_amt = [f"{v * k:.2f}" for v in nums if abs(v) >= 10 for k in (0.99, 1.0, 1.01, -1.01)]
+    base_domain = globals()["domain"]
+
+    def domain(f, rng):  # noqa: F811  (extends the generic domain with this op's literals)
+        if f == "memo" and extra_memo and rng.random() < 0.4:
+            return rng.choice(extra_memo)
+        if f == "amount" and extra_amt and rng.random() < 0.3:
+            return rng.choice(extra_amt)
+        return base_domain(f, rng)
+
+    def table(rng, n):
+        rows = [{f: domain(f, rng) for f in FIELDS} for _ in range(n)]
+        for _ in range(rng.randrange(3)):
+            rows.append(dict(rng.choice(rows)))
+        return rows
     reads = set()
     for f in FIELDS:
         for _ in range(trials):

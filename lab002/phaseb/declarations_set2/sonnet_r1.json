@@ -1,0 +1,78 @@
+{
+ "op_1": {
+  "reads": [
+   "amount",
+   "currency",
+   "channel",
+   "region",
+   "product"
+  ],
+  "row_independent": true,
+  "order_insensitive": false
+ },
+ "op_2": {
+  "reads": [
+   "memo",
+   "channel",
+   "date"
+  ],
+  "row_independent": true,
+  "order_insensitive": false
+ },
+ "op_3": {
+  "reads": [
+   "currency",
+   "amount",
+   "memo"
+  ],
+  "row_independent": false,
+  "order_insensitive": false
+ },
+ "op_4": {
+  "reads": [
+   "txn_id",
+   "fingerprint",
+   "currency",
+   "amount"
+  ],
+  "row_independent": false,
+  "order_insensitive": true
+ },
+ "op_5": {
+  "reads": [
+   "amount",
+   "date",
+   "fingerprint",
+   "txn_id"
+  ],
+  "row_independent": false,
+  "order_insensitive": true
+ },
+ "op_6": {
+  "reads": [
+   "amount",
+   "memo",
+   "region",
+   "currency"
+  ],
+  "row_independent": false,
+  "order_insensitive": true
+ },
+ "op_7": {
+  "reads": [
+   "txn_id",
+   "fingerprint"
+  ],
+  "row_independent": false,
+  "order_insensitive": true
+ },
+ "op_8": {
+  "reads": [
+   "channel",
+   "currency",
+   "amount"
+  ],
+  "row_independent": false,
+  "order_insensitive": false
+ }
+}

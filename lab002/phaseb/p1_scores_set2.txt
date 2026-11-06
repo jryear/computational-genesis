@@ -1,0 +1,9 @@
+codex_r1   exact 8/8  omitted=-  extra=-  row_err=-  order_err=-
+codex_r2   exact 8/8  omitted=-  extra=-  row_err=-  order_err=-
+codex_r3   exact 8/8  omitted=-  extra=-  row_err=-  order_err=-
+haiku_r1   exact 8/8  omitted=-  extra=-  row_err=-  order_err=-
+haiku_r2   exact 8/8  omitted=-  extra=-  row_err=-  order_err=-
+haiku_r3   exact 8/8  omitted=-  extra=-  row_err=-  order_err=-
+sonnet_r1  exact 8/8  omitted=-  extra=-  row_err=-  order_err=-
+sonnet_r2  exact 8/8  omitted=-  extra=-  row_err=-  order_err=-
+sonnet_r3  exact 8/8  omitted=-  extra=-  row_err=-  order_err=-

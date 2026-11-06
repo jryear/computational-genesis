@@ -1,0 +1,12 @@
+set1: single-field omissions caught in all 5 seeds: 21/24
+   MISSED op_1 omits currency: caught 0/5 seeds
+   MISSED op_6 omits txn_id: caught 0/5 seeds
+   MISSED op_6 omits fingerprint: caught 0/5 seeds
+set2: single-field omissions caught in all 5 seeds: 21/28
+   MISSED op_3 omits memo: caught 0/5 seeds
+   MISSED op_4 omits txn_id: caught 0/5 seeds
+   MISSED op_4 omits fingerprint: caught 0/5 seeds
+   MISSED op_5 omits date: caught 0/5 seeds
+   MISSED op_5 omits fingerprint: caught 0/5 seeds
+   MISSED op_6 omits memo: caught 0/5 seeds
+   MISSED op_7 omits fingerprint: caught 0/5 seeds
