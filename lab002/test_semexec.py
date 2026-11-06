@@ -62,5 +62,14 @@ class Verifier(unittest.TestCase):
         self.assertEqual(stale_count("semantic_verified", "true")[0], 0)
 
 
+class Targeted(unittest.TestCase):
+    def test_targeted_true_scenario_never_stale(self):
+        self.assertEqual(stale_count("targeted_a25", "true")[0], 0)
+
+    def test_targeted_rejects_false_declarations_at_first_use(self):
+        for scn in ("W1", "W2", "W4"):
+            self.assertEqual(stale_count("targeted_a25", scn, seed=7)[0], 0, scn)
+
+
 if __name__ == "__main__":
     unittest.main()

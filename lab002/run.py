@@ -18,6 +18,7 @@ import semexec as S  # noqa: E402
 SCENARIOS = ["true", "W1", "W2", "W3", "W4"]
 BASELINES = ["naive", "content", "content_sharded"]
 SEMANTIC = ["semantic_trusted", "semantic_verified"]
+RUN2 = ["targeted_a10", "targeted_a25", "targeted_a50"]
 
 
 def opset(scn):
@@ -44,7 +45,7 @@ def exec_job(args):
     mix, seed, scn, ex_name, truth = args
     ops, decl = S.scenario(scn)
     cls = S.EXECUTORS[ex_name]
-    ex = cls(ops, decl, seed=seed) if ex_name.startswith("semantic") else cls(ops, decl)
+    ex = cls(ops, decl, seed=seed) if ex_name.startswith(("semantic", "targeted")) else cls(ops, decl)
     cpu, stale, first_stale = [], {}, {}
     for t, rows in enumerate(steps(mix, seed)):
         c0 = time.process_time()
@@ -65,6 +66,7 @@ if __name__ == "__main__":
     ap.add_argument("out")
     ap.add_argument("--seeds", type=int, default=5)
     ap.add_argument("--jobs", type=int, default=4)
+    ap.add_argument("--run2", action="store_true", help="also run the run-2 targeted-audit executors")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -74,7 +76,7 @@ if __name__ == "__main__":
         jobs = [(m, s, opset(sc), e, truth[(m, s, opset(sc))]) for m in mixes for s in seeds
                 for sc in ("true", "W3") for e in BASELINES]
         jobs += [(m, s, sc, e, truth[(m, s, opset(sc))]) for m in mixes for s in seeds
-                 for sc in SCENARIOS for e in SEMANTIC]
+                 for sc in SCENARIOS for e in SEMANTIC + (RUN2 if a.run2 else [])]
         results = pool.map(exec_job, jobs)
     with open(out / "results.jsonl", "w") as f:
         for r in results:

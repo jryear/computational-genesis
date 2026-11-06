@@ -369,5 +369,77 @@ class SemanticVerified(Semantic):
         return True
 
 
+class SemanticTargeted(SemanticVerified):
+    """Run 2: same first-use verification, but audits only reuse that the DECLARATION enables.
+
+    A reused row whose full content was already computed or audited is safe by content
+    hashing alone. A reused row whose full content is new, but whose declared projection
+    matches a cached one, is reused only because the declaration is trusted: audit those,
+    a fraction `audit_rate` per step. Unaudited ones stay candidates on later steps."""
+
+    def __init__(self, ops, decl, audit_rate=0.25, seed=0):
+        super().__init__(ops, decl, audit_rate=audit_rate, seed=seed)
+        self.known = {}     # op -> set of full-content hashes computed fresh or audited OK
+
+    def step(self, rows):
+        self.t += 1
+        out = {}
+        for name, (fn, _, _) in self.ops.items():
+            if name not in self.trusted:
+                self.trusted[name] = self.check(name, rows)
+                if not self.trusted[name]:
+                    self.events.append((self.t, name, "rejected_at_verification"))
+            if not self.trusted[name]:
+                out[name] = self.fallback.run_op(name, fn, rows)
+                continue
+            known = self.known.setdefault(name, set())
+            d = self.decl[name]
+            if d["row_wise"]:
+                full = [h(r) for r in rows]
+                keys = [h(self.proj(name, r)) for r in rows]
+                missing = [i for i, k in enumerate(keys) if (name, k) not in self.rowcache]
+                decl_enabled = [i for i in range(len(rows))
+                                if (name, keys[i]) in self.rowcache and full[i] not in known]
+                if missing:
+                    for i, v in zip(missing, fn([rows[i] for i in missing])):
+                        self.rowcache[(name, keys[i])] = v
+                        known.add(full[i])
+                if decl_enabled:
+                    k = min(len(decl_enabled), max(1, math.ceil(self.audit_rate * len(decl_enabled))))
+                    pick = self.rng.sample(decl_enabled, k)
+                    fresh = fn([rows[i] for i in pick])
+                    if any(f != self.rowcache[(name, keys[i])] for i, f in zip(pick, fresh)):
+                        self.revoke(name)
+                        self.known.pop(name, None)
+                        out[name] = self.fallback.run_op(name, fn, rows)
+                        continue
+                    known.update(full[i] for i in pick)
+                out[name] = [self.rowcache[(name, k)] for k in keys]
+            else:
+                full = h(rows)
+                p = [self.proj(name, r) for r in rows]
+                if d["order_insensitive"]:
+                    p = sorted(p, key=json.dumps)
+                key = (name, h(p))
+                if key not in self.cache:
+                    self.cache[key] = fn(rows)
+                    known.add(full)
+                elif full not in known and self.rng.random() < self.audit_rate:
+                    if fn(rows) != self.cache[key]:
+                        self.revoke(name)
+                        self.known.pop(name, None)
+                        out[name] = self.fallback.run_op(name, fn, rows)
+                        continue
+                    known.add(full)
+                out[name] = self.cache[key]
+        return out
+
+
+def _targeted(rate):
+    return lambda ops, decl, seed=0: SemanticTargeted(ops, decl, audit_rate=rate, seed=seed)
+
+
 EXECUTORS = {"naive": Naive, "content": Content, "content_sharded": ContentSharded,
-             "semantic_trusted": SemanticTrusted, "semantic_verified": SemanticVerified}
+             "semantic_trusted": SemanticTrusted, "semantic_verified": SemanticVerified,
+             "targeted_a10": _targeted(0.10), "targeted_a25": _targeted(0.25),
+             "targeted_a50": _targeted(0.50)}
