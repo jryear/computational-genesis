@@ -1,0 +1,30 @@
+C1 PASS   C2 PASS
+S1' targeted_a25 stale (true/W1/W2/W4) {'true': 0, 'W1': 0, 'W2': 0, 'W4': 0} -> PASS
+realistic     semantic_trusted     0.72s  ratio 0.790 vs best baseline 0.91s
+realistic     semantic_verified    1.69s  ratio 1.855 vs best baseline 0.91s
+realistic     targeted_a10         1.48s  ratio 1.625 vs best baseline 0.91s
+realistic     targeted_a25         1.38s  ratio 1.520 vs best baseline 0.91s  <- E1' bound 0.8: FAIL
+realistic     targeted_a50         1.53s  ratio 1.685 vs best baseline 0.91s
+relevant_only semantic_trusted     0.96s  ratio 1.020 vs best baseline 0.94s
+relevant_only semantic_verified    2.08s  ratio 2.212 vs best baseline 0.94s
+relevant_only targeted_a10         1.60s  ratio 1.700 vs best baseline 0.94s
+relevant_only targeted_a25         1.68s  ratio 1.785 vs best baseline 0.94s  <- E2' bound 1.1: FAIL
+relevant_only targeted_a50         1.47s  ratio 1.570 vs best baseline 0.94s
+
+S2' W3 rare dependence (realistic mix): stale op-steps / revocation step per seed
+  semantic_trusted   stale=[23, 19, 19, 21, 11] total=93 revoked_at=[None, None, None, None, None]
+  semantic_verified  stale=[1, 1, 3, 7, 4] total=16 revoked_at=[5, 9, 11, 13, 20]
+  targeted_a10       stale=[0, 0, 0, 0, 3] total=3 revoked_at=[4, 8, 8, 6, 19]
+  targeted_a25       stale=[0, 0, 0, 0, 1] total=1 revoked_at=[4, 8, 8, 6, 17]
+  targeted_a50       stale=[0, 0, 0, 0, 0] total=0 revoked_at=[4, 8, 8, 6, 16]
+
+stale op-steps, all mixes, by scenario:
+  semantic_trusted   true=0  W1=35  W2=221  W3=93  W4=39
+  semantic_verified  true=0  W1=0  W2=0  W3=16  W4=0
+  targeted_a10       true=0  W1=0  W2=0  W3=3  W4=0
+  targeted_a25       true=0  W1=0  W2=0  W3=1  W4=0
+  targeted_a50       true=0  W1=0  W2=0  W3=0  W4=0
+
+Controls passed. S1'=PASS E1'=FAIL E2'=FAIL
+
+[exited with code 0]
