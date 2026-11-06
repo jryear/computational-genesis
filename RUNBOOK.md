@@ -18,8 +18,22 @@ There is no API key, package installation, published endpoint or provider fallba
 6. Apply the already-frozen H1/H2 rules; characterize source mechanisms without
    inferring novelty from names. Write the result and limitations, even for failures.
 
-The implemented supervisor CLI and exact commands are added below with implementation
-instructions; no manual command should execute generated source on the host.
+The supervisor CLI enforces a fresh run directory. Run these stages in order:
+
+```sh
+python3 -m genesis.lab prepare --run evidence/lab001/run-001
+python3 -m genesis.lab develop --run evidence/lab001/run-001
+python3 -m genesis.lab evaluate --run evidence/lab001/run-001
+```
+
+`prepare` builds the restricted image, records immutable source/protocol hashes,
+and runs positive, negative and hostile-code controls. `develop` uses the existing
+approved Codex sign-in and subscription capacity for two independent sessions.
+`evaluate` accepts only the frozen selections and unchanged evaluator. It creates
+a new evaluation subdirectory, preserving incomplete and earlier evaluations.
+Use a new run directory for a new design attempt. Never execute submitted source
+directly on the host. Inspect `progress.jsonl`, participant source/development
+artifacts, and `evaluations/*/report.json` for the actual result.
 
 ## Recovery and evidence
 

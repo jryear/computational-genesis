@@ -1,0 +1,4 @@
+{
+  "status": "pre-participant setup superseded",
+  "reason": "Committed lost-reply point was a preexisting zero-delta retry. No participant development ran. Retained controls are setup evidence only; final protocol injects a fresh nonzero mutation."
+}

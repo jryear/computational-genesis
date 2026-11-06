@@ -22,9 +22,13 @@ No hidden feedback may be used for revision in this experiment.
 
 Three paired repetitions, alternating arm order AB / BA / AB, with a fresh execution
 boundary per arm. Every case begins with a fresh engine. Checkpoints after each case
-are included in the byte metric. Two cases per suite inject a lost reply: snapshot
-the acknowledged prefix; execute the next message and discard its reply; kill the
-whole container; restore the prefix into a new container; redeliver and compare.
+are included in the byte metric. Two cases per suite inject a lost reply at the
+first fresh, nonzero credit after at least 16 messages. One saves
+the acknowledged prefix, executes the next message without checkpointing, kills
+the whole container, restores the prefix and redelivers; the other checkpoints the
+new state after execution but withholds the reply, kills the container, restores
+the committed state and retries the same message. Both compare with one logical
+execution in the independent oracle. All produced checkpoints count toward bytes.
 Other cases test in-boundary snapshot restoration. This is sequential handoff and
 message replay; it is not multi-host parallelism, consensus or network partition proof.
 
@@ -46,7 +50,8 @@ Code size and prompt bytes are complexity proxies, not a complete knowledge metr
 H2 uses median complete-suite workload CPU and summed raw checkpoint sizes (same
 messages/checkpoint schedule), with median summed active request duration as a
 non-regression guard. Charge load, execution, snapshot, recovery and resource-probe
-overhead. Report measurement overhead and setup separately where possible. Retain
+overhead up to each cgroup sample; the tail of the sampling helper and host Docker
+overhead are not included in workload CPU. Report setup separately where possible. Retain
 failures and missing observations; do not discard slow or incorrect trials.
 
 ## Evaluator controls and security

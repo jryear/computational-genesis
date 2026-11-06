@@ -1,0 +1,18 @@
+{
+  "ARCHITECTURE.md": "881c9a9b3298d9dfdb4ecef3c9bd160b755458a3a2cdb819821149c9f5371c69",
+  "EVALUATION.md": "b73ead518c189ee33032aabaa619b6dc17eada4ebfca632731cc8aeadcbc391c",
+  "HYPOTHESIS.md": "467f4cf49cd0d01fd56c42134e32674b4820e9e8ad27596e9b5e4651a76cc495",
+  "RUNBOOK.md": "e943266987a7426de2f3573e014d9698f914c79c2178c68c9bc95cbaa48d8285",
+  "SUBSTRATE.md": "bec93fdcdd4629fb50bb38a745474572810ee1615542afad609ea993894d4f7b",
+  "genesis/__init__.py": "89e7fbacadd9ff92db4c9237bb09cd9f2f3b0c45abeb6509725d12c52b647916",
+  "genesis/controls.py": "7655dd22c226ce7623721cbfb8dc2f961494a66c310816e18eb762f0036f594c",
+  "genesis/corpus.py": "3a829aa51b2ff69eeb270b20df34fc46d32727dd17be7f87ed62a5222fc7fd75",
+  "genesis/evaluator.py": "36cce1b45d88273df8c36fe5cb7a884cdfbb0950e0a0befac44aa39a3c26dc67",
+  "genesis/isolation.py": "6a487d04c68ee64b32f886789f35583cfdec0ed8b4419e90d53e22866ff7ff13",
+  "genesis/lab.py": "601d8b7b0e3daea6a90f60fe37bb0c61c08df3f72d2dfbaa2a5a9e528fbe4d7b",
+  "genesis/oracle.py": "868be8f223e83477dc526b995bb06ba50e16922a5703ce807cb1889ddd73285b",
+  "genesis/runner.py": "a99567014498ac03aaf8dd1fcf7a39f94ec12b932101bf3ca015447504344867",
+  "src/codex_broker.py": "a660f799330a9e81b7268a1196d056ac72753c810d38e9631a816cad5307eada",
+  "src/model-policy.json": "50e810c4703ea4b928dcb1901033de7eea356247b993afa2a7a68303c27621cc",
+  "tests/test_genesis.py": "67daa01d779093e7db0ce4e25a0daed98024840ab8dec4244bccd93c4b74ed12"
+}

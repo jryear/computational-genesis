@@ -137,8 +137,8 @@ class CodexBroker:
             self.pending.append(event)
         raise TimeoutError("Codex protocol deadline")
 
-    def run(self, model, arm, prompt, handle, max_calls=12, seconds=120, interrupt_after_effect=False):
-        tools = [SHELL] if arm == "conventional" else TOOLS + ([PROPOSE] if arm == "discovery" else [])
+    def run(self, model, arm, prompt, handle, max_calls=12, seconds=120, interrupt_after_effect=False, tool_specs=None):
+        tools = tool_specs if tool_specs is not None else ([SHELL] if arm == "conventional" else TOOLS + ([PROPOSE] if arm == "discovery" else []))
         started = self.request("thread/start", {"model": model, "modelProvider": "openai",
             "allowProviderModelFallback": False, "ephemeral": True, "environments": [],
             "runtimeWorkspaceRoots": [], "selectedCapabilityRoots": [], "approvalPolicy": "never",
