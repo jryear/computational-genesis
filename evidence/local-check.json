@@ -1,0 +1,81 @@
+{
+  "kind": "deterministic_integration_check",
+  "source_sha256": {
+    "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/codex_broker.py": "9c11519f51840d84b582197e85f1a0798c1155db837aa55978b839e788c22fbe",
+    "src/conventional.py": "f943146ea4488ac45392f1496926516aca9e4f9cfab404daf1a086b199f5d1d9",
+    "src/fixtures.py": "c2b65904bea076dae3a53bafb77dc67e89dab2541a6044b21684ee4848a3d878",
+    "src/lab.py": "0a710886686303ac08c18ea8fc0fca1eacdc86a0a56cd682025c8e63f7133ab9",
+    "src/oracle.py": "6bee4db14e1aea2df80770fce88881e91d2b914e390f7693206b4c45aaaec74d",
+    "src/substrate.py": "1b997ad1f232dc7f821da8b1f29abaca1cf40a6c7da90a5a6aa8fa331ba63d4f",
+    "src/supervisor.py": "eb1068d47058e69536921eabb4200b3087778c44cf358d9cf6e2110cbcea7310",
+    "src/model-policy.json": "50e810c4703ea4b928dcb1901033de7eea356247b993afa2a7a68303c27621cc",
+    "Dockerfile": "6770a07101dae88d5004be77bd88525e98810fd8e8fcdd79f2be00ee75cd14c2"
+  },
+  "passed": true,
+  "isolation": {
+    "network": "none",
+    "read_only": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_options": [
+      "no-new-privileges:true"
+    ],
+    "memory_bytes": 134217728,
+    "pids_limit": 32,
+    "user": "65532:65532",
+    "mounts": [
+      {
+        "type": "volume",
+        "destination": "/state"
+      }
+    ],
+    "environment_names": [
+      "GPG_KEY",
+      "PATH",
+      "PYTHONDONTWRITEBYTECODE",
+      "PYTHONUNBUFFERED",
+      "PYTHON_SHA256",
+      "PYTHON_VERSION"
+    ]
+  },
+  "checks": [
+    "container_boundary",
+    "network_denial",
+    "immutable_root",
+    "no_auth_environment",
+    "no_supervisor_oracle",
+    "real_restart",
+    "exact_replay",
+    "stale_revision_denial",
+    "supervisor_pause",
+    "independent_result_grade",
+    "qualified_composition"
+  ],
+  "host_metrics": {
+    "cgroup_segments": [
+      {
+        "cpu_usage_usec": 148608,
+        "memory_peak_bytes": 22491136,
+        "tasks_peak": 8,
+        "raw": "usage_usec 148608\nuser_usec 108257\nsystem_usec 40350\nnice_usec 0\nnr_periods 3\nnr_throttled 3\nthrottled_usec 266135\nnr_bursts 0\nburst_usec 0\n22491136\n8\n"
+      },
+      {
+        "cpu_usage_usec": 80016,
+        "memory_peak_bytes": 14708736,
+        "tasks_peak": 7,
+        "raw": "usage_usec 80016\nuser_usec 59499\nsystem_usec 20517\nnice_usec 0\nnr_periods 1\nnr_throttled 1\nthrottled_usec 23345\nnr_bursts 0\nburst_usec 0\n14708736\n7\n"
+      }
+    ],
+    "cpu_usage_usec": 228624,
+    "memory_peak_bytes": 22491136,
+    "tasks_peak": 8,
+    "includes_measurement_overhead": true,
+    "stdio_requests": 11,
+    "shell_executions_including_measurement": 3,
+    "container": "objective-lab-7e7d4ed84e46",
+    "volume": "objective-lab-7e7d4ed84e46-state"
+  },
+  "performance_conclusion": null
+}

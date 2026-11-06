@@ -1,0 +1,21 @@
+{
+  "kind": "build_metadata",
+  "source_sha256": {
+    "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/codex_broker.py": "9c11519f51840d84b582197e85f1a0798c1155db837aa55978b839e788c22fbe",
+    "src/conventional.py": "f943146ea4488ac45392f1496926516aca9e4f9cfab404daf1a086b199f5d1d9",
+    "src/fixtures.py": "c2b65904bea076dae3a53bafb77dc67e89dab2541a6044b21684ee4848a3d878",
+    "src/lab.py": "0a710886686303ac08c18ea8fc0fca1eacdc86a0a56cd682025c8e63f7133ab9",
+    "src/oracle.py": "6bee4db14e1aea2df80770fce88881e91d2b914e390f7693206b4c45aaaec74d",
+    "src/substrate.py": "1b997ad1f232dc7f821da8b1f29abaca1cf40a6c7da90a5a6aa8fa331ba63d4f",
+    "src/supervisor.py": "eb1068d47058e69536921eabb4200b3087778c44cf358d9cf6e2110cbcea7310",
+    "src/model-policy.json": "50e810c4703ea4b928dcb1901033de7eea356247b993afa2a7a68303c27621cc",
+    "Dockerfile": "6770a07101dae88d5004be77bd88525e98810fd8e8fcdd79f2be00ee75cd14c2"
+  },
+  "base_image_repo_digests": [
+    "python@sha256:7415fbc3c9e4979cc717d92377ab2bc7b2b4a2af1ac03cc52b5f3f88efedaf3a"
+  ],
+  "workload_image_id": "sha256:c0e6d0a5a497dd7c59dca1d4562cbd60a6acefa2cf9f7cd088a2bdfea3345936",
+  "codex_version": "codex-cli 0.167.0",
+  "docker_server_version": "29.8.2"
+}

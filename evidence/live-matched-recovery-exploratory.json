@@ -1,0 +1,702 @@
+{
+  "kind": "live_codex_pilot",
+  "source_sha256": {
+    "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/codex_broker.py": "9c11519f51840d84b582197e85f1a0798c1155db837aa55978b839e788c22fbe",
+    "src/conventional.py": "f943146ea4488ac45392f1496926516aca9e4f9cfab404daf1a086b199f5d1d9",
+    "src/fixtures.py": "c2b65904bea076dae3a53bafb77dc67e89dab2541a6044b21684ee4848a3d878",
+    "src/lab.py": "0a710886686303ac08c18ea8fc0fca1eacdc86a0a56cd682025c8e63f7133ab9",
+    "src/oracle.py": "6bee4db14e1aea2df80770fce88881e91d2b914e390f7693206b4c45aaaec74d",
+    "src/substrate.py": "ac0013984ed8fa85e49f0b2919413f0ca31f498d6c2e7650851d37cedc31198f",
+    "src/supervisor.py": "3b9fe35c10a6cce3684b65efc5d137bd2002fa79430c06c0cd16c6d8e63fe65c",
+    "src/model-policy.json": "50e810c4703ea4b928dcb1901033de7eea356247b993afa2a7a68303c27621cc",
+    "Dockerfile": "6770a07101dae88d5004be77bd88525e98810fd8e8fcdd79f2be00ee75cd14c2"
+  },
+  "baseline": "capability_matched_shell_adapter",
+  "trials": [
+    {
+      "arm": "conventional",
+      "repetition": 0,
+      "initial_grade": false,
+      "passed": true,
+      "session": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "terminal"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "injected_lost_reply",
+        "latency_seconds": 3.846405207994394,
+        "prompt_bytes": 900,
+        "tool_schema_bytes": 297,
+        "usage": null,
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py observe"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 0, \"checkpoint\": \"raw\", \"remaining_transitions\": 12, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": null}}\n",
+              "truncated": false
+            }
+          }
+        ],
+        "messages": []
+      },
+      "recovery": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "terminal"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "completed",
+        "latency_seconds": 16.076513917010743,
+        "prompt_bytes": 1047,
+        "tool_schema_bytes": 297,
+        "usage": {
+          "total": {
+            "totalTokens": 3617,
+            "inputTokens": 3384,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 233,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 1087,
+            "inputTokens": 1037,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 50,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py observe"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 0, \"checkpoint\": \"raw\", \"remaining_transitions\": 12, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": null}}\n",
+              "truncated": false
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py transition '{\"request_id\":\"recover-normalize-1\",\"expected_revision\":0,\"capability\":\"normalize\",\"target\":\"normalized\"}'"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 1, \"checkpoint\": \"normalized\", \"remaining_transitions\": 11, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": null, \"route\": \"pure\", \"receipt\": \"recover-normalize-1\"}}\n",
+              "truncated": false
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py transition '{\"request_id\":\"recover-aggregate-2\",\"expected_revision\":1,\"capability\":\"aggregate\",\"target\":\"aggregated\"}'"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 2, \"checkpoint\": \"aggregated\", \"remaining_transitions\": 10, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": null, \"route\": \"pure\", \"receipt\": \"recover-aggregate-2\"}}\n",
+              "truncated": false
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py transition '{\"request_id\":\"recover-verify-3\",\"expected_revision\":2,\"capability\":\"verify\",\"target\":\"verified\"}'"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 3, \"checkpoint\": \"verified\", \"remaining_transitions\": 9, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": {\"birch\": 19028, \"cedar\": 26531, \"elm\": 13242}, \"route\": \"pure\", \"receipt\": \"recover-verify-3\"}}\n",
+              "truncated": false
+            }
+          }
+        ],
+        "messages": [
+          "Verified completion at revision 3. Active records were deduplicated by identity and summed in integer minor units:\n\n- birch: 19,028\n- cedar: 26,531\n- elm: 13,242"
+        ]
+      },
+      "total_seconds_including_broker": 21.51288279198343,
+      "host_metrics": {
+        "cgroup_raw": "usage_usec 566127\nuser_usec 434951\nsystem_usec 131175\nnice_usec 0\nnr_periods 22\nnr_throttled 6\nthrottled_usec 273527\nnr_bursts 0\nburst_usec 0\n25169920\n11\n",
+        "runtime_requests": 2,
+        "shell_executions_including_measurement": 6,
+        "container": "objective-lab-726525e707f0",
+        "volume": "objective-lab-726525e707f0-state"
+      },
+      "isolation": {
+        "network": "none",
+        "read_only": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges:true"
+        ],
+        "memory_bytes": 134217728,
+        "pids_limit": 32,
+        "user": "65532:65532",
+        "mounts": [
+          {
+            "type": "volume",
+            "destination": "/state"
+          }
+        ],
+        "environment_names": [
+          "GPG_KEY",
+          "PATH",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONUNBUFFERED",
+          "PYTHON_SHA256",
+          "PYTHON_VERSION"
+        ]
+      }
+    },
+    {
+      "arm": "abstract",
+      "repetition": 0,
+      "initial_grade": false,
+      "passed": true,
+      "session": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "injected_lost_reply",
+        "latency_seconds": 5.839597624959424,
+        "prompt_bytes": 524,
+        "tool_schema_bytes": 978,
+        "usage": {
+          "total": {
+            "totalTokens": 344,
+            "inputTokens": 331,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 13,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 344,
+            "inputTokens": 331,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 13,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "raw",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 12,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 0
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "normalize",
+              "expected_revision": 0,
+              "request_id": "reconcile-normalize-1",
+              "target": "normalized"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "normalized",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-normalize-1",
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 1,
+                "route": "pure"
+              }
+            }
+          }
+        ],
+        "messages": []
+      },
+      "recovery": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "completed",
+        "latency_seconds": 9.956930292013567,
+        "prompt_bytes": 671,
+        "tool_schema_bytes": 978,
+        "usage": {
+          "total": {
+            "totalTokens": 2279,
+            "inputTokens": 2146,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 133,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 795,
+            "inputTokens": 750,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 45,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "normalized",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 1
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "aggregate",
+              "expected_revision": 1,
+              "request_id": "reconcile-aggregate-r1",
+              "target": "aggregated"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "aggregated",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-aggregate-r1",
+                "remaining_transitions": 10,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 2,
+                "route": "pure"
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "verify",
+              "expected_revision": 2,
+              "request_id": "reconcile-verify-r2",
+              "target": "verified"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "verified",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-verify-r2",
+                "remaining_transitions": 9,
+                "resource": "synthetic-records",
+                "result": {
+                  "birch": 19028,
+                  "cedar": 26531,
+                  "elm": 13242
+                },
+                "retained_primitives": [],
+                "revision": 3,
+                "route": "pure"
+              }
+            }
+          }
+        ],
+        "messages": [
+          "Verified completion. Active records deduplicated by identity; totals in integer minor units:\n\n- birch: 19,028\n- cedar: 26,531\n- elm: 13,242"
+        ]
+      },
+      "total_seconds_including_broker": 17.50285112502752,
+      "host_metrics": {
+        "cgroup_raw": "usage_usec 89456\nuser_usec 67343\nsystem_usec 22112\nnice_usec 0\nnr_periods 10\nnr_throttled 1\nthrottled_usec 59228\nnr_bursts 0\nburst_usec 0\n15540224\n7\n",
+        "runtime_requests": 7,
+        "shell_executions_including_measurement": 1,
+        "container": "objective-lab-b141413eb904",
+        "volume": "objective-lab-b141413eb904-state"
+      },
+      "isolation": {
+        "network": "none",
+        "read_only": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges:true"
+        ],
+        "memory_bytes": 134217728,
+        "pids_limit": 32,
+        "user": "65532:65532",
+        "mounts": [
+          {
+            "type": "volume",
+            "destination": "/state"
+          }
+        ],
+        "environment_names": [
+          "GPG_KEY",
+          "PATH",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONUNBUFFERED",
+          "PYTHON_SHA256",
+          "PYTHON_VERSION"
+        ]
+      }
+    },
+    {
+      "arm": "discovery",
+      "repetition": 0,
+      "initial_grade": true,
+      "passed": true,
+      "session": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition",
+          "propose"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "injected_lost_reply",
+        "latency_seconds": 7.163134542002808,
+        "prompt_bytes": 761,
+        "tool_schema_bytes": 1477,
+        "usage": {
+          "total": {
+            "totalTokens": 1007,
+            "inputTokens": 965,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 42,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 560,
+            "inputTokens": 531,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 29,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "raw",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 12,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 0
+              }
+            }
+          },
+          {
+            "tool": "propose",
+            "arguments": {
+              "name": "p_reconcile",
+              "plan": [
+                "normalize",
+                "aggregate",
+                "verify"
+              ]
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "baseline_requests": 3,
+                "candidate_requests": 1,
+                "cpu_improvement": null,
+                "criterion": "equal_result_fewer_boundary_requests",
+                "latency_improvement": null,
+                "primitive": "p_reconcile",
+                "qualification_cases": 8,
+                "retained": true
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "p_reconcile",
+              "expected_revision": 0,
+              "request_id": "reconcile-001",
+              "target": "verified"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "verified",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-001",
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": {
+                  "birch": 19028,
+                  "cedar": 26531,
+                  "elm": 13242
+                },
+                "retained_primitives": [
+                  "p_reconcile"
+                ],
+                "revision": 1,
+                "route": "composed"
+              }
+            }
+          }
+        ],
+        "messages": []
+      },
+      "recovery": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition",
+          "propose"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "completed",
+        "latency_seconds": 10.59914345794823,
+        "prompt_bytes": 908,
+        "tool_schema_bytes": 1477,
+        "usage": {
+          "total": {
+            "totalTokens": 1889,
+            "inputTokens": 1743,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 146,
+            "reasoningOutputTokens": 17
+          },
+          "last": {
+            "totalTokens": 792,
+            "inputTokens": 707,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 85,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "verified",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": {
+                  "birch": 19028,
+                  "cedar": 26531,
+                  "elm": 13242
+                },
+                "retained_primitives": [
+                  "p_reconcile"
+                ],
+                "revision": 1
+              }
+            }
+          },
+          {
+            "tool": "propose",
+            "arguments": {
+              "name": "p_reconcile",
+              "plan": [
+                "normalize",
+                "aggregate",
+                "verify"
+              ]
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "baseline_requests": 3,
+                "candidate_requests": 1,
+                "cpu_improvement": null,
+                "criterion": "equal_result_fewer_boundary_requests",
+                "latency_improvement": null,
+                "primitive": "p_reconcile",
+                "qualification_cases": 8,
+                "retained": true
+              }
+            }
+          }
+        ],
+        "messages": [
+          "Recovered durable state: reconciliation was already verified, so no recomputation was needed.\n\nTotals in integer minor units:\n- birch: 19,028\n- cedar: 26,531\n- elm: 13,242\n\nProposed and qualified `p_reconcile` across 8 cases: equal results using 1 request instead of 3. Retained; no further transition was needed."
+        ]
+      },
+      "total_seconds_including_broker": 19.403233958000783,
+      "host_metrics": {
+        "cgroup_raw": "usage_usec 81696\nuser_usec 58208\nsystem_usec 23487\nnice_usec 0\nnr_periods 7\nnr_throttled 1\nthrottled_usec 8687\nnr_bursts 0\nburst_usec 0\n17141760\n7\n",
+        "runtime_requests": 7,
+        "shell_executions_including_measurement": 1,
+        "container": "objective-lab-b02fbaa01a58",
+        "volume": "objective-lab-b02fbaa01a58-state"
+      },
+      "isolation": {
+        "network": "none",
+        "read_only": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges:true"
+        ],
+        "memory_bytes": 134217728,
+        "pids_limit": 32,
+        "user": "65532:65532",
+        "mounts": [
+          {
+            "type": "volume",
+            "destination": "/state"
+          }
+        ],
+        "environment_names": [
+          "GPG_KEY",
+          "PATH",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONUNBUFFERED",
+          "PYTHON_SHA256",
+          "PYTHON_VERSION"
+        ]
+      }
+    }
+  ],
+  "interruption": "post_execution_before_tool_reply",
+  "dollar_cost": null,
+  "cost_note": "Codex subscription usage; token counters retained when reported. No dollar price inferred.",
+  "acceptance": "Pilot only. No claim of statistical superiority or general abstraction discovery."
+}

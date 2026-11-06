@@ -1,0 +1,541 @@
+{
+  "kind": "live_codex_pilot",
+  "trials": [
+    {
+      "arm": "conventional",
+      "repetition": 0,
+      "initial_grade": null,
+      "passed": true,
+      "session": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "terminal"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "completed",
+        "latency_seconds": 14.385559707996435,
+        "usage": {
+          "total": {
+            "totalTokens": 7335,
+            "inputTokens": 6933,
+            "cachedInputTokens": 3328,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 402,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 3537,
+            "inputTokens": 3500,
+            "cachedInputTokens": 3328,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 37,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python - <<'PY'\nimport sys\nsys.path.insert(0,'/opt/lab')\nfrom fixtures import records\nr=records()\nprint(type(r))\nprint(repr(r)[:16000] if isinstance(r,(list,dict)) else '')\nPY"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "<class 'list'>\n[{'record': 'r80', 'team': 'birch', 'minor': 1720, 'active': True}, {'record': 'r84', 'team': 'birch', 'minor': 1515, 'active': True}, {'record': 'r24', 'team': 'elm', 'minor': 816, 'active': True}, {'record': 'r82', 'team': 'cedar', 'minor': 390, 'active': True}, {'record': 'r79', 'team': 'cedar', 'minor': 373, 'active': True}, {'record': 'r88', 'team': 'birch', 'minor': 1718, 'active': False}, {'record': 'r4', 'team': 'elm', 'minor': 1418, 'active': True}, {'record': 'r61', 'team': 'cedar', 'minor': -193, 'active': True}, {'record': 'r86', 'team': 'birch', 'minor': 726, 'active': True}, {'record': 'r73', 'team': 'cedar', 'minor': 1422, 'active': True}, {'record': 'r60', 'team': 'birch', 'minor': 934, 'active': True}, {'record': 'r77', 'team': 'cedar', 'minor': 1485, 'active': True}, {'record': 'r41', 'team': 'birch', 'minor': 611, 'active': True}, {'record': 'r15', 'team': 'cedar', 'minor': 1152, 'active': False}, {'record': 'r19', 'team': 'elm', 'minor': 1173, 'active': False}, {'record': 'r65', 'team': 'elm', 'minor': 774, 'active': True}, {'record': 'r28', 'team': 'cedar', 'minor': 1686, 'active': False}, {'record': 'r93', 'team': 'birch', 'minor': 287, 'active': True}, {'record': 'r20', 'team': 'cedar', 'minor': 828, 'active': True}, {'record': 'r14', 'team': 'cedar', 'minor': 1472, 'active': True}, {'record': 'r30', 'team': 'elm', 'minor': 1303, 'active': True}, {'record': 'r45', 'team': 'elm', 'minor': -184, 'active': True}, {'record': 'r16', 'team': 'birch', 'minor': 1235, 'active': True}, {'record': 'r55', 'team': 'elm', 'minor': 1645, 'active': True}, {'record': 'r1', 'team': 'birch', 'minor': 886, 'active': False}, {'record': 'r31', 'team': 'birch', 'minor': 317, 'active': True}, {'record': 'r12', 'team': 'birch', 'minor': 280, 'active': True}, {'record': 'r91', 'team': 'birch', 'minor': 1594, 'active': True}, {'record': 'r2', 'team': 'elm', 'minor': 839, 'active': False}, {'record': 'r81', 'team': 'birch', 'minor': 1367, 'active': False}, {'record': 'r76', 'team': 'elm', 'minor': 321, 'active': True}, {'record': 'r66', 'team': 'birch', 'minor': 1406, 'active': True}, {'record': 'r32', 'team': 'cedar', 'minor': -95, 'active': True}, {'record': 'r92', 'team': 'cedar', 'minor': 789, 'active': True}, {'record': 'r10', 'team': 'cedar', 'minor': -17, 'active': True}, {'record': 'r7', 'team': 'elm', 'minor': -46, 'active': False}, {'record': 'r36', 'team': 'birch', 'minor': 726, 'active': True}, {'record': 'r58', 'team': 'birch', 'minor': 565, 'active': False}, {'record': 'r87', 'team': 'birch', 'minor': -272, 'active': True}, {'record': 'r67', 'team': 'cedar', 'minor': 1089, 'active': False}, {'record': 'r42', 'team': 'elm', 'minor': 1522, 'active': False}, {'record': 'r63', 'team': 'cedar', 'minor': 1453, 'active': True}, {'record': 'r70', 'team': 'birch', 'minor': 221, 'active': True}, {'record': 'r35', 'team': 'birch', 'minor': 80, 'active': True}, {'record': 'r70', 'team': 'birch', 'minor': 221, 'active': True}, {'record': 'r5', 'team': 'elm', 'minor': 1000, 'active': True}, {'record': 'r57', 'team': 'cedar', 'minor': 1614, 'active': True}, {'record': 'r0', 'team': 'elm', 'minor': 1396, 'active': True}, {'record': 'r51', 'team': 'birch', 'minor': 82, 'active': True}, {'record': 'r59', 'team': 'cedar', 'minor': -238, 'active': False}, {'record': 'r11', 'team': 'cedar', 'minor': 1777, 'active': True}, {'record': 'r52', 'team': 'elm', 'minor': -257, 'active': True}, {'record': 'r74', 'team': 'cedar', 'minor': 1677, 'active': True}, {'record': 'r13', 'team': 'birch', 'minor': 1772, 'active': True}, {'record': 'r85', 'team': 'cedar', 'minor': 882, 'active': True}, {'record': 'r38', 'team': 'cedar', 'minor': 690, 'active': True}, {'record': 'r56', 'team': 'birch', 'minor': 778, 'active': True}, {'record': 'r78', 'team': 'birch', 'minor': 331, 'active': True}, {'record': 'r18', 'team': 'elm', 'minor': 575, 'active': True}, {'record': 'r27', 'team': 'cedar', 'minor': 512, 'active': True}, {'record': 'r90', 'team': 'cedar', 'minor': 915, 'active': False}, {'record': 'r84', 'team': 'birch', 'minor': 1515, 'active': True}, {'record': 'r37', 'team': 'birch', 'minor': 1667, 'active': False}, {'record': 'r77', 'team': 'cedar', 'minor': 1485, 'active': True}, {'record': 'r43', 'team': 'birch', 'minor': 595, 'active': True}, {'record': 'r95', 'team': 'cedar', 'minor': 1212, 'active': True}, {'record': 'r26', 'team': 'elm', 'minor': 816, 'active': True}, {'record': 'r62', 'team': 'cedar', 'minor': -178, 'active': True}, {'record': 'r9', 'team': 'elm', 'minor': 560, 'active': True}, {'record': 'r49', 'team': 'birch', 'minor': 405, 'active': True}, {'record': 'r53', 'team': 'elm', 'minor': 432, 'active': True}, {'record': 'r14', 'team': 'cedar', 'minor': 1472, 'active': True}, {'record': 'r56', 'team': 'birch', 'minor': 778, 'active': True}, {'record': 'r83', 'team': 'cedar', 'minor': 665, 'active': True}, {'record': 'r69', 'team': 'birch', 'minor': 1032, 'active': True}, {'record': 'r50', 'team': 'cedar', 'minor': 942, 'active': True}, {'record': 'r7', 'team': 'elm', 'minor': -46, 'active': False}, {'record': 'r94', 'team': 'elm', 'minor': 754, 'active': True}, {'record': 'r25', 'team': 'cedar', 'minor': 1125, 'active': False}, {'record': 'r21', 'team': 'elm', 'minor': 230, 'active': True}, {'record': 'r40', 'team': 'cedar', 'minor': 1693, 'active': True}, {'record': 'r89', 'team': 'cedar', 'minor': 1249, 'active': True}, {'record': 'r21', 'team': 'elm', 'minor': 230, 'active': True}, {'record': 'r23', 'team': 'birch', 'minor': 85, 'active': True}, {'record': 'r46', 'team': 'elm', 'minor': 1431, 'active': False}, {'record': 'r17', 'team': 'cedar', 'minor': 1360, 'active': True}, {'record': 'r49', 'team': 'birch', 'minor': 405, 'active': True}, {'record': 'r33', 'team': 'elm', 'minor': 949, 'active': True}, {'record': 'r28', 'team': 'cedar', 'minor': 1686, 'active': False}, {'record': 'r68', 'team': 'elm', 'minor': -163, 'active': True}, {'record': 'r47', 'team': 'birch', 'minor': 392, 'active': True}, {'record': 'r91', 'team': 'birch', 'minor': 1594, 'active': True}, {'record': 'r54', 'team': 'birch', 'minor': 1765, 'active': False}, {'record': 'r72', 'team': 'birch', 'minor': 210, 'active': True}, {'record': 'r75', 'team': 'cedar', 'minor': 1767, 'active': True}, {'record': 'r39', 'team': 'birch', 'minor': 369, 'active': True}, {'record': 'r6', 'team': 'elm', 'minor': 1344, 'active': False}, {'record': 'r64', 'team': 'elm', 'minor': -55, 'active': True}, {'record': 'r63', 'team': 'cedar', 'minor': 1453, 'active': True}, {'record': 'r3', 'team': 'cedar', 'minor': 719, 'active': True}, {'record': 'r0', 'team': 'elm', 'minor': 1396, 'active': True}, {'record': 'r35', 'team': 'birch', 'minor': 80, 'active': True}, {'record': 'r22', 'team': 'birch', 'minor': 1124, 'active': True}, {'record': 'r71', 'team': 'cedar', 'minor': 1725, 'active': True}, {'record': 'r44', 'team': 'birch', 'minor': 473, 'active': True}, {'record': 'r34', 'team': 'birch', 'minor': 994, 'active': False}, {'record': 'r8', 'team': 'cedar', 'minor': 318, 'active': True}, {'record': 'r29', 'team': 'elm', 'minor': 266, 'active': True}, {'record': 'r42', 'team': 'elm', 'minor': 1522, 'active': False}, {'record': 'r48', 'team': 'elm', 'minor': 646, 'active': True}]\n",
+              "truncated": false
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python - <<'PY'\nimport sys,json,os,collections\nsys.path.insert(0,'/opt/lab')\nfrom fixtures import records\nrows=records(); unique={}\nfor r in rows:\n if r['active']:\n  assert type(r['minor']) is int\n  if r['record'] in unique: assert unique[r['record']]==r\n  unique[r['record']]=r\ntotals=collections.defaultdict(int)\nfor r in unique.values(): totals[r['team']]+=r['minor']\nos.makedirs('/state',exist_ok=True)\nwith open('/state/result.json','w') as f: json.dump(dict(sorted(totals.items())),f)\n# Independent verification via distinct identities and direct team sums.\nexpected={t:sum(next(r['minor'] for r in rows if r['record']==i and r['active']) for i in {r['record'] for r in rows if r['active'] and r['team']==t}) for t in {r['team'] for r in rows if r['active']}}\nwith open('/state/result.json') as f: result=json.load(f)\nassert result==expected\nprint('VERIFIED',json.dumps(result,sort_keys=True))\nPY"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "VERIFIED {\"birch\": 19028, \"cedar\": 26531, \"elm\": 13242}\n",
+              "truncated": false
+            }
+          }
+        ],
+        "messages": [
+          "Verified and saved totals to `/state/result.json`:\n\n```json\n{\"birch\":19028,\"cedar\":26531,\"elm\":13242}\n```"
+        ]
+      },
+      "recovery": null,
+      "total_seconds_including_broker": 14.983842957997695,
+      "host_metrics": {
+        "cgroup_raw": "usage_usec 200005\nuser_usec 144003\nsystem_usec 56001\nnice_usec 0\nnr_periods 10\nnr_throttled 1\nthrottled_usec 10013\nnr_bursts 0\nburst_usec 0\n22798336\n10\n",
+        "runtime_requests": 0,
+        "shell_executions_including_measurement": 4,
+        "container": "objective-lab-93c933a52036",
+        "volume": "objective-lab-93c933a52036-state"
+      },
+      "isolation": {
+        "network": "none",
+        "read_only": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges:true"
+        ],
+        "memory_bytes": 134217728,
+        "pids_limit": 32,
+        "user": "65532:65532",
+        "mounts": [
+          {
+            "type": "volume",
+            "destination": "/state"
+          }
+        ],
+        "environment_names": [
+          "GPG_KEY",
+          "PATH",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONUNBUFFERED",
+          "PYTHON_SHA256",
+          "PYTHON_VERSION"
+        ]
+      }
+    },
+    {
+      "arm": "abstract",
+      "repetition": 0,
+      "initial_grade": true,
+      "passed": true,
+      "session": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "completed",
+        "latency_seconds": 11.639757208991796,
+        "usage": {
+          "total": {
+            "totalTokens": 2867,
+            "inputTokens": 2691,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 176,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 875,
+            "inputTokens": 824,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 51,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "raw",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 12,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 0
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "normalize",
+              "expected_revision": 0,
+              "request_id": "reconcile-normalize-1",
+              "target": "normalized"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "normalized",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-normalize-1",
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 1,
+                "route": "pure"
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "aggregate",
+              "expected_revision": 1,
+              "request_id": "reconcile-aggregate-1",
+              "target": "aggregated"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "aggregated",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-aggregate-1",
+                "remaining_transitions": 10,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 2,
+                "route": "pure"
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "verify",
+              "expected_revision": 2,
+              "request_id": "reconcile-verify-1",
+              "target": "verified"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "verified",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-verify-1",
+                "remaining_transitions": 9,
+                "resource": "synthetic-records",
+                "result": {
+                  "birch": 19028,
+                  "cedar": 26531,
+                  "elm": 13242
+                },
+                "retained_primitives": [],
+                "revision": 3,
+                "route": "pure"
+              }
+            }
+          }
+        ],
+        "messages": [
+          "Verified completion: active records retained, deduplicated by record identity, and summed by team in integer minor units.\n\n- birch: 19,028\n- cedar: 26,531\n- elm: 13,242"
+        ]
+      },
+      "recovery": null,
+      "total_seconds_including_broker": 14.578406165994238,
+      "host_metrics": {
+        "cgroup_raw": "usage_usec 89400\nuser_usec 68066\nsystem_usec 21334\nnice_usec 0\nnr_periods 11\nnr_throttled 1\nthrottled_usec 51070\nnr_bursts 0\nburst_usec 0\n17469440\n7\n",
+        "runtime_requests": 5,
+        "shell_executions_including_measurement": 1,
+        "container": "objective-lab-99ccbd86f05d",
+        "volume": "objective-lab-99ccbd86f05d-state"
+      },
+      "isolation": {
+        "network": "none",
+        "read_only": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges:true"
+        ],
+        "memory_bytes": 134217728,
+        "pids_limit": 32,
+        "user": "65532:65532",
+        "mounts": [
+          {
+            "type": "volume",
+            "destination": "/state"
+          }
+        ],
+        "environment_names": [
+          "GPG_KEY",
+          "PATH",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONUNBUFFERED",
+          "PYTHON_SHA256",
+          "PYTHON_VERSION"
+        ]
+      }
+    },
+    {
+      "arm": "discovery",
+      "repetition": 0,
+      "initial_grade": true,
+      "passed": true,
+      "session": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition",
+          "propose"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "completed",
+        "latency_seconds": 20.466597249964252,
+        "usage": {
+          "total": {
+            "totalTokens": 4983,
+            "inputTokens": 4743,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 240,
+            "reasoningOutputTokens": 10
+          },
+          "last": {
+            "totalTokens": 1123,
+            "inputTokens": 1073,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 50,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "raw",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 12,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 0
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "normalize",
+              "expected_revision": 0,
+              "request_id": "reconcile-normalize-1",
+              "target": "synthetic-records"
+            },
+            "result": {
+              "error": "request_refused",
+              "ok": false
+            }
+          },
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "raw",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 12,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 0
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "normalize",
+              "expected_revision": 0,
+              "request_id": "reconcile-normalize-2",
+              "target": "normalized"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "normalized",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-normalize-2",
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 1,
+                "route": "pure"
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "aggregate",
+              "expected_revision": 1,
+              "request_id": "reconcile-aggregate-1",
+              "target": "aggregated"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "aggregated",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-aggregate-1",
+                "remaining_transitions": 10,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 2,
+                "route": "pure"
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "verify",
+              "expected_revision": 2,
+              "request_id": "reconcile-verify-1",
+              "target": "verified"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "verified",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-verify-1",
+                "remaining_transitions": 9,
+                "resource": "synthetic-records",
+                "result": {
+                  "birch": 19028,
+                  "cedar": 26531,
+                  "elm": 13242
+                },
+                "retained_primitives": [],
+                "revision": 3,
+                "route": "pure"
+              }
+            }
+          }
+        ],
+        "messages": [
+          "Verified completion: active records retained, deduplicated by identity, and summed by team in integer minor units.\n\n- birch: 19,028\n- cedar: 26,531\n- elm: 13,242"
+        ]
+      },
+      "recovery": null,
+      "total_seconds_including_broker": 21.21232749999035,
+      "host_metrics": {
+        "cgroup_raw": "usage_usec 93592\nuser_usec 75859\nsystem_usec 17733\nnice_usec 0\nnr_periods 13\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n17264640\n7\n",
+        "runtime_requests": 7,
+        "shell_executions_including_measurement": 1,
+        "container": "objective-lab-9016e5572152",
+        "volume": "objective-lab-9016e5572152-state"
+      },
+      "isolation": {
+        "network": "none",
+        "read_only": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges:true"
+        ],
+        "memory_bytes": 134217728,
+        "pids_limit": 32,
+        "user": "65532:65532",
+        "mounts": [
+          {
+            "type": "volume",
+            "destination": "/state"
+          }
+        ],
+        "environment_names": [
+          "GPG_KEY",
+          "PATH",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONUNBUFFERED",
+          "PYTHON_SHA256",
+          "PYTHON_VERSION"
+        ]
+      }
+    }
+  ],
+  "interruption": null,
+  "dollar_cost": null,
+  "cost_note": "Codex subscription usage; token counters retained when reported. No dollar price inferred.",
+  "acceptance": "Pilot only. No claim of statistical superiority or general abstraction discovery."
+}

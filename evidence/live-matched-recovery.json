@@ -1,0 +1,786 @@
+{
+  "kind": "live_codex_pilot",
+  "baseline": "capability_matched_shell_adapter",
+  "trials": [
+    {
+      "arm": "conventional",
+      "repetition": 0,
+      "initial_grade": false,
+      "passed": true,
+      "session": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "terminal"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "injected_lost_reply",
+        "latency_seconds": 3.466741957992781,
+        "prompt_bytes": 900,
+        "tool_schema_bytes": 297,
+        "usage": null,
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py observe"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 0, \"checkpoint\": \"raw\", \"remaining_transitions\": 12, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": null}}\n",
+              "truncated": false
+            }
+          }
+        ],
+        "messages": []
+      },
+      "recovery": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "terminal"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "completed",
+        "latency_seconds": 21.4369645830011,
+        "prompt_bytes": 1047,
+        "tool_schema_bytes": 297,
+        "usage": {
+          "total": {
+            "totalTokens": 15319,
+            "inputTokens": 14988,
+            "cachedInputTokens": 5760,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 331,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 3508,
+            "inputTokens": 3459,
+            "cachedInputTokens": 2944,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 49,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py observe"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 0, \"checkpoint\": \"raw\", \"remaining_transitions\": 12, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": null}}\n",
+              "truncated": false
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py transition '{\"request_id\":\"recover-normalize-1\",\"expected_revision\":0,\"capability\":\"normalize\",\"target\":\"synthetic-records\"}'"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": false, \"error\": \"request_refused\"}\n",
+              "truncated": false
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "cat /opt/lab/conventional.py"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "\"\"\"Capability-matched conventional command adapter, available only inside workloads.\"\"\"\nimport argparse\nimport json\nfrom substrate import Runtime, Refusal\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"operation\", choices=(\"observe\", \"transition\"))\nparser.add_argument(\"request\", nargs=\"?\", default=\"{}\")\nargs = parser.parse_args()\nruntime = Runtime(\"/state/runtime.db\")\ntry:\n    value = runtime.observe() if args.operation == \"observe\" else runtime.transition(json.loads(args.request))\n    print(json.dumps({\"ok\": True, \"value\": value}))\nexcept (Refusal, ValueError, TypeError, KeyError):\n    print(json.dumps({\"ok\": False, \"error\": \"request_refused\"}))\nfinally:\n    runtime.close()\n",
+              "truncated": false
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "cat /opt/lab/substrate.py"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "\"\"\"Model-facing runtime. All mutations are transactional, bounded, and replayable.\"\"\"\nimport json\nimport re\nimport sqlite3\nimport sys\n\nfrom fixtures import records\n\nSTAGES = (\"raw\", \"normalized\", \"aggregated\", \"verified\")\nOPS = (\"normalize\", \"aggregate\", \"verify\")\n\n\nclass Refusal(Exception):\n    pass\n\n\ndef canonical(value):\n    return json.dumps(value, sort_keys=True, separators=(\",\", \":\"))\n\n\ndef normalize(rows):\n    unique = {}\n    for row in rows:\n        if row[\"active\"]:\n            unique[row[\"record\"]] = row\n    return [unique[key] for key in sorted(unique)]\n\n\ndef aggregate(rows):\n    totals = {}\n    for row in rows:\n        totals[row[\"team\"]] = totals.get(row[\"team\"], 0) + row[\"minor\"]\n    return dict(sorted(totals.items()))\n\n\ndef reference(rows):\n    # Separate control implementation for candidate qualification. Host oracle is independent.\n    return aggregate(normalize(rows))\n\n\nclass Runtime:\n    def __init__(self, database, seed=17, budget=12):\n        self.db = sqlite3.connect(database, isolation_level=None, timeout=3)\n        self.db.execute(\"PRAGMA journal_mode=WAL\")\n        self.db.executescript(\"\"\"\n          CREATE TABLE IF NOT EXISTS state (id INTEGER PRIMARY KEY CHECK(id=1), payload TEXT);\n          CREATE TABLE IF NOT EXISTS receipts (id TEXT PRIMARY KEY, request TEXT, response TEXT);\n          CREATE TABLE IF NOT EXISTS candidates (name TEXT PRIMARY KEY, plan TEXT, evidence TEXT);\n        \"\"\")\n        initial = {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 0,\n                   \"stage\": \"raw\", \"value\": records(seed), \"remaining\": budget,\n                   \"work_units\": 0, \"cache_hits\": 0, \"paused\": False}\n        self.db.execute(\"INSERT OR IGNORE INTO state VALUES(1, ?)\", (canonical(initial),))\n        self.initialize_metadata(seed)\n\n    def close(self):\n        self.db.close()\n\n    def state(self):\n        return json.loads(self.db.execute(\"SELECT payload FROM state WHERE id=1\").fetchone()[0])\n\n    def observe(self):\n        s = self.state()\n        return {\"objective\": s[\"objective\"], \"resource\": s[\"resource\"], \"revision\": s[\"revision\"],\n                \"checkpoint\": s[\"stage\"], \"remaining_transitions\": s[\"remaining\"],\n                \"paused\": s[\"paused\"], \"capabilities\": list(OPS),\n                \"retained_primitives\": [r[0] for r in self.db.execute(\"SELECT name FROM candidates ORDER BY name\")],\n                \"result\": s[\"value\"] if s[\"stage\"] == \"verified\" else None}\n\n    def transition(self, request):\n        allowed = {\"request_id\", \"expected_revision\", \"capability\", \"target\"}\n        if set(request) != allowed or not isinstance(request[\"request_id\"], str) or not re.fullmatch(r\"[a-zA-Z0-9_-]{1,64}\", request[\"request_id\"]):\n            raise Refusal(\"invalid_request\")\n        if type(request[\"expected_revision\"]) is not int:\n            raise Refusal(\"invalid_revision\")\n        encoded = canonical(request)\n        self.db.execute(\"BEGIN IMMEDIATE\")\n        try:\n            previous = self.db.execute(\"SELECT request,response FROM receipts WHERE id=?\", (request[\"request_id\"],)).fetchone()\n            if previous:\n                if previous[0] != encoded:\n                    raise Refusal(\"request_identity_conflict\")\n                self.db.execute(\"COMMIT\")\n                return json.loads(previous[1])\n            s = self.state()\n            if s[\"paused\"]:\n                raise Refusal(\"supervisor_paused\")\n            if s[\"revision\"] != request[\"expected_revision\"]:\n                raise Refusal(\"stale_revision\")\n            if s[\"remaining\"] <= 0:\n                raise Refusal(\"budget_exhausted\")\n            capability, target = request[\"capability\"], request[\"target\"]\n            candidate = self.db.execute(\"SELECT plan FROM candidates WHERE name=?\", (capability,)).fetchone()\n            plan = json.loads(candidate[0]) if candidate else [capability]\n            if not all(op in OPS for op in plan) or target not in STAGES:\n                raise Refusal(\"unknown_capability_or_target\")\n            start_stage = STAGES.index(s[\"stage\"])\n            if STAGES.index(target) <= start_stage:\n                s[\"cache_hits\"] += 1\n                route = \"already_satisfied\"\n            else:\n                stage = start_stage\n                value = s[\"value\"]\n                for op in plan:\n                    if stage >= 3 or OPS[stage] != op:\n                        raise Refusal(\"dependency_unsatisfied\")\n                    if op == \"normalize\":\n                        value = normalize(value)\n                    elif op == \"aggregate\":\n                        value = aggregate(value)\n                    else:\n                        # Check derived state against immutable synthetic input.\n                        if value != self.expected:\n                            raise Refusal(\"verification_failed\")\n                    stage += 1\n                if STAGES[stage] != target:\n                    raise Refusal(\"target_mismatch\")\n                s.update(value=value, stage=target, work_units=s[\"work_units\"] + len(plan))\n                route = \"composed\" if candidate else \"pure\"\n            s.update(revision=s[\"revision\"] + 1, remaining=s[\"remaining\"] - 1)\n            self.db.execute(\"UPDATE state SET payload=? WHERE id=1\", (canonical(s),))\n            answer = {**self.observe(), \"route\": route, \"receipt\": request[\"request_id\"]}\n            self.db.execute(\"INSERT INTO receipts VALUES(?,?,?)\", (request[\"request_id\"], encoded, canonical(answer)))\n            self.db.execute(\"COMMIT\")\n            return answer\n        except BaseException:\n            if self.db.in_transaction:\n                self.db.execute(\"ROLLBACK\")\n            raise\n\n    @property\n    def expected(self):\n        row = self.db.execute(\"SELECT value FROM metadata WHERE key='expected'\").fetchone()\n        return json.loads(row[0])\n\n    def initialize_metadata(self, seed):\n        self.db.execute(\"CREATE TABLE IF NOT EXISTS metadata(key TEXT PRIMARY KEY, value TEXT)\")\n        self.db.execute(\"INSERT OR IGNORE INTO metadata VALUES('expected',?)\", (canonical(reference(records(seed))),))\n\n    def propose(self, name, plan):\n        plans = [list(OPS[:2]), list(OPS[1:]), list(OPS)]\n        if not isinstance(name, str) or not re.fullmatch(r\"p_[a-z_]{1,24}\", name) or plan not in plans:\n            raise Refusal(\"invalid_primitive\")\n        self.db.execute(\"BEGIN IMMEDIATE\")\n        try:\n            if self.state()[\"paused\"]:\n                raise Refusal(\"supervisor_paused\")\n            old = self.db.execute(\"SELECT plan,evidence FROM candidates WHERE name=?\", (name,)).fetchone()\n            if old:\n                self.db.execute(\"COMMIT\")\n                return json.loads(old[1])\n            if self.db.execute(\"SELECT count(*) FROM candidates\").fetchone()[0] >= 2:\n                raise Refusal(\"proposal_budget_exhausted\")\n            # Grammar is deliberately finite. No eval, imports, loops, or arbitrary source.\n            for seed in range(200, 208):\n                rows = records(seed)\n                result = aggregate(normalize(rows))\n                independently = {team: sum({r[\"record\"]: r[\"minor\"] for r in rows if r[\"active\"] and r[\"team\"] == team}.values())\n                                 for team in {r[\"team\"] for r in rows if r[\"active\"]}}\n                if result != independently:\n                    raise Refusal(\"qualification_failed\")\n            evidence = {\"primitive\": name, \"retained\": True, \"qualification_cases\": 8,\n                        \"baseline_requests\": len(plan), \"candidate_requests\": 1,\n                        \"criterion\": \"equal_result_fewer_boundary_requests\",\n                        \"latency_improvement\": None, \"cpu_improvement\": None}\n            self.db.execute(\"INSERT INTO candidates VALUES(?,?,?)\", (name, canonical(plan), canonical(evidence)))\n            self.db.execute(\"COMMIT\")\n            return evidence\n        except BaseException:\n            if self.db.in_transaction:\n                self.db.execute(\"ROLLBACK\")\n            raise\n\n    def pause(self, paused):\n        self.db.execute(\"BEGIN IMMEDIATE\")\n        s = self.state(); s[\"paused\"] = paused\n        self.db.execute(\"UPDAT",
+              "truncated": true
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py transition '{\"request_id\":\"normalize-2\",\"expected_revision\":0,\"capability\":\"normalize\",\"target\":\"normalized\"}'"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 1, \"checkpoint\": \"normalized\", \"remaining_transitions\": 11, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": null, \"route\": \"pure\", \"receipt\": \"normalize-2\"}}\n",
+              "truncated": false
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py transition '{\"request_id\":\"aggregate-3\",\"expected_revision\":1,\"capability\":\"aggregate\",\"target\":\"aggregated\"}'"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 2, \"checkpoint\": \"aggregated\", \"remaining_transitions\": 10, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": null, \"route\": \"pure\", \"receipt\": \"aggregate-3\"}}\n",
+              "truncated": false
+            }
+          },
+          {
+            "tool": "terminal",
+            "arguments": {
+              "command": "python /opt/lab/conventional.py transition '{\"request_id\":\"verify-4\",\"expected_revision\":2,\"capability\":\"verify\",\"target\":\"verified\"}'"
+            },
+            "result": {
+              "exit_code": 0,
+              "output": "{\"ok\": true, \"value\": {\"objective\": \"reconcile\", \"resource\": \"synthetic-records\", \"revision\": 3, \"checkpoint\": \"verified\", \"remaining_transitions\": 9, \"paused\": false, \"capabilities\": [\"normalize\", \"aggregate\", \"verify\"], \"retained_primitives\": [], \"result\": {\"birch\": 19028, \"cedar\": 26531, \"elm\": 13242}, \"route\": \"pure\", \"receipt\": \"verify-4\"}}\n",
+              "truncated": false
+            }
+          }
+        ],
+        "messages": [
+          "Verified completion at revision 3. Active records deduplicated by identity; totals in integer minor units:\n\n- birch: 19,028\n- cedar: 26,531\n- elm: 13,242"
+        ]
+      },
+      "total_seconds_including_broker": 26.616549083963037,
+      "host_metrics": {
+        "cgroup_raw": "usage_usec 709264\nuser_usec 549654\nsystem_usec 159609\nnice_usec 0\nnr_periods 36\nnr_throttled 10\nthrottled_usec 432239\nnr_bursts 0\nburst_usec 0\n25878528\n14\n",
+        "runtime_requests": 2,
+        "shell_executions_including_measurement": 9,
+        "container": "objective-lab-ef0e6fc1d694",
+        "volume": "objective-lab-ef0e6fc1d694-state"
+      },
+      "isolation": {
+        "network": "none",
+        "read_only": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges:true"
+        ],
+        "memory_bytes": 134217728,
+        "pids_limit": 32,
+        "user": "65532:65532",
+        "mounts": [
+          {
+            "type": "volume",
+            "destination": "/state"
+          }
+        ],
+        "environment_names": [
+          "GPG_KEY",
+          "PATH",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONUNBUFFERED",
+          "PYTHON_SHA256",
+          "PYTHON_VERSION"
+        ]
+      }
+    },
+    {
+      "arm": "abstract",
+      "repetition": 0,
+      "initial_grade": false,
+      "passed": true,
+      "session": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "injected_lost_reply",
+        "latency_seconds": 8.092557916999795,
+        "prompt_bytes": 524,
+        "tool_schema_bytes": 693,
+        "usage": {
+          "total": {
+            "totalTokens": 727,
+            "inputTokens": 677,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 50,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 424,
+            "inputTokens": 387,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 37,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "raw",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 12,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 0
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "normalize",
+              "expected_revision": 0,
+              "request_id": "normalize-1",
+              "target": "synthetic-records"
+            },
+            "result": {
+              "error": "request_refused",
+              "ok": false
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "normalize",
+              "expected_revision": 0,
+              "request_id": "normalize-2",
+              "target": "normalized"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "normalized",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "normalize-2",
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 1,
+                "route": "pure"
+              }
+            }
+          }
+        ],
+        "messages": []
+      },
+      "recovery": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "completed",
+        "latency_seconds": 10.39828570804093,
+        "prompt_bytes": 671,
+        "tool_schema_bytes": 693,
+        "usage": {
+          "total": {
+            "totalTokens": 2117,
+            "inputTokens": 1982,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 135,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 756,
+            "inputTokens": 709,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 47,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "normalized",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 1
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "aggregate",
+              "expected_revision": 1,
+              "request_id": "reconcile-aggregate-1",
+              "target": "aggregated"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "aggregated",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-aggregate-1",
+                "remaining_transitions": 10,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 2,
+                "route": "pure"
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "verify",
+              "expected_revision": 2,
+              "request_id": "reconcile-verify-2",
+              "target": "verified"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "verified",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-verify-2",
+                "remaining_transitions": 9,
+                "resource": "synthetic-records",
+                "result": {
+                  "birch": 19028,
+                  "cedar": 26531,
+                  "elm": 13242
+                },
+                "retained_primitives": [],
+                "revision": 3,
+                "route": "pure"
+              }
+            }
+          }
+        ],
+        "messages": [
+          "Verified completion: active records deduplicated by identity and summed in integer minor units by team.\n\n- birch: 19,028\n- cedar: 26,531\n- elm: 13,242"
+        ]
+      },
+      "total_seconds_including_broker": 20.219675083993934,
+      "host_metrics": {
+        "cgroup_raw": "usage_usec 81828\nuser_usec 60348\nsystem_usec 21479\nnice_usec 0\nnr_periods 7\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n15507456\n7\n",
+        "runtime_requests": 8,
+        "shell_executions_including_measurement": 1,
+        "container": "objective-lab-e1fee605a448",
+        "volume": "objective-lab-e1fee605a448-state"
+      },
+      "isolation": {
+        "network": "none",
+        "read_only": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges:true"
+        ],
+        "memory_bytes": 134217728,
+        "pids_limit": 32,
+        "user": "65532:65532",
+        "mounts": [
+          {
+            "type": "volume",
+            "destination": "/state"
+          }
+        ],
+        "environment_names": [
+          "GPG_KEY",
+          "PATH",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONUNBUFFERED",
+          "PYTHON_SHA256",
+          "PYTHON_VERSION"
+        ]
+      }
+    },
+    {
+      "arm": "discovery",
+      "repetition": 0,
+      "initial_grade": false,
+      "passed": true,
+      "session": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition",
+          "propose"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "injected_lost_reply",
+        "latency_seconds": 9.621141124982387,
+        "prompt_bytes": 600,
+        "tool_schema_bytes": 1192,
+        "usage": {
+          "total": {
+            "totalTokens": 884,
+            "inputTokens": 831,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 53,
+            "reasoningOutputTokens": 0
+          },
+          "last": {
+            "totalTokens": 504,
+            "inputTokens": 464,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 40,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "raw",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 12,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 0
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "normalize",
+              "expected_revision": 0,
+              "request_id": "reconcile-normalize-1",
+              "target": "synthetic-records"
+            },
+            "result": {
+              "error": "request_refused",
+              "ok": false
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "normalize",
+              "expected_revision": 0,
+              "request_id": "reconcile-normalize-2",
+              "target": "normalized"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "normalized",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-normalize-2",
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 1,
+                "route": "pure"
+              }
+            }
+          }
+        ],
+        "messages": []
+      },
+      "recovery": {
+        "requested_model": "gpt-6.1-sol",
+        "effective_model": "gpt-6.1-sol",
+        "provider": "openai",
+        "effort": "low",
+        "auth": "existing_codex_chatgpt",
+        "declared_tools": [
+          "observe",
+          "transition",
+          "propose"
+        ],
+        "environment_access": false,
+        "instruction_sources": 0,
+        "status": "completed",
+        "latency_seconds": 15.230563000019174,
+        "prompt_bytes": 747,
+        "tool_schema_bytes": 1192,
+        "usage": {
+          "total": {
+            "totalTokens": 4035,
+            "inputTokens": 3833,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 202,
+            "reasoningOutputTokens": 11
+          },
+          "last": {
+            "totalTokens": 1007,
+            "inputTokens": 959,
+            "cachedInputTokens": 0,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 48,
+            "reasoningOutputTokens": 0
+          },
+          "modelContextWindow": 258400
+        },
+        "cost_usd": null,
+        "unexpected_capabilities": [],
+        "calls": [
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "normalized",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 1
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "aggregate",
+              "expected_revision": 1,
+              "request_id": "reconcile-aggregate-r1",
+              "target": "synthetic-records"
+            },
+            "result": {
+              "error": "request_refused",
+              "ok": false
+            }
+          },
+          {
+            "tool": "observe",
+            "arguments": {},
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "normalized",
+                "objective": "reconcile",
+                "paused": false,
+                "remaining_transitions": 11,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 1
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "aggregate",
+              "expected_revision": 1,
+              "request_id": "reconcile-aggregate-r1",
+              "target": "aggregated"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "aggregated",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-aggregate-r1",
+                "remaining_transitions": 10,
+                "resource": "synthetic-records",
+                "result": null,
+                "retained_primitives": [],
+                "revision": 2,
+                "route": "pure"
+              }
+            }
+          },
+          {
+            "tool": "transition",
+            "arguments": {
+              "capability": "verify",
+              "expected_revision": 2,
+              "request_id": "reconcile-verify-r2",
+              "target": "verified"
+            },
+            "result": {
+              "ok": true,
+              "value": {
+                "capabilities": [
+                  "normalize",
+                  "aggregate",
+                  "verify"
+                ],
+                "checkpoint": "verified",
+                "objective": "reconcile",
+                "paused": false,
+                "receipt": "reconcile-verify-r2",
+                "remaining_transitions": 9,
+                "resource": "synthetic-records",
+                "result": {
+                  "birch": 19028,
+                  "cedar": 26531,
+                  "elm": 13242
+                },
+                "retained_primitives": [],
+                "revision": 3,
+                "route": "pure"
+              }
+            }
+          }
+        ],
+        "messages": [
+          "Verified completion. Recovered the normalized checkpoint without recomputing it.\n\nTotals in integer minor units:\n- birch: 19,028\n- cedar: 26,531\n- elm: 13,242"
+        ]
+      },
+      "total_seconds_including_broker": 26.518571874999907,
+      "host_metrics": {
+        "cgroup_raw": "usage_usec 96056\nuser_usec 62730\nsystem_usec 33325\nnice_usec 0\nnr_periods 14\nnr_throttled 1\nthrottled_usec 25019\nnr_bursts 0\nburst_usec 0\n17985536\n7\n",
+        "runtime_requests": 10,
+        "shell_executions_including_measurement": 1,
+        "container": "objective-lab-5d493422e462",
+        "volume": "objective-lab-5d493422e462-state"
+      },
+      "isolation": {
+        "network": "none",
+        "read_only": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges:true"
+        ],
+        "memory_bytes": 134217728,
+        "pids_limit": 32,
+        "user": "65532:65532",
+        "mounts": [
+          {
+            "type": "volume",
+            "destination": "/state"
+          }
+        ],
+        "environment_names": [
+          "GPG_KEY",
+          "PATH",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONUNBUFFERED",
+          "PYTHON_SHA256",
+          "PYTHON_VERSION"
+        ]
+      }
+    }
+  ],
+  "interruption": "post_execution_before_tool_reply",
+  "dollar_cost": null,
+  "cost_note": "Codex subscription usage; token counters retained when reported. No dollar price inferred.",
+  "acceptance": "Pilot only. No claim of statistical superiority or general abstraction discovery."
+}
