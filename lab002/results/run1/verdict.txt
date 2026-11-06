@@ -1,0 +1,67 @@
+C1 trusted+W1 produces stale outputs the evaluator flags: 35 stale op-steps -> PASS
+C2 baselines never stale: 0 -> PASS
+S1 semantic_verified stale outputs (true/W1/W2/W4): {'true': 0, 'W1': 0, 'W2': 0, 'W4': 0} -> PASS
+S2 (exploratory) W3 rare dependence:
+   verified realistic     seed1: stale={'fees': 1} first_stale={'fees': 3} events=[[5, 'fees', 'revoked_by_audit']]
+   verified realistic     seed2: stale={'fees': 1} first_stale={'fees': 7} events=[[9, 'fees', 'revoked_by_audit']]
+   verified realistic     seed3: stale={'fees': 3} first_stale={'fees': 7} events=[[11, 'fees', 'revoked_by_audit']]
+   verified realistic     seed4: stale={'fees': 7} first_stale={'fees': 5} events=[[13, 'fees', 'revoked_by_audit']]
+   verified realistic     seed5: stale={'fees': 4} first_stale={'fees': 15} events=[[20, 'fees', 'revoked_by_audit']]
+   verified relevant_only seed1: stale={} first_stale={} events=[]
+   verified relevant_only seed2: stale={} first_stale={} events=[]
+   verified relevant_only seed3: stale={} first_stale={} events=[]
+   verified relevant_only seed4: stale={} first_stale={} events=[]
+   verified relevant_only seed5: stale={} first_stale={} events=[]
+   trusted total stale op-steps: 93; verified: 16
+E1 realistic: semantic_verified 1.94s vs best baseline 1.00s (content_sharded) ratio 1.938 (bound 0.5) -> FAIL
+E2 relevant_only: semantic_verified 1.92s vs best baseline 0.98s (content_sharded) ratio 1.954 (bound 1.1) -> FAIL
+
+median total CPU s (scenario true) / stale op-steps summed over seeds:
+  realistic: semantic_trusted=0.75, content_sharded=1.00, semantic_verified=1.94, naive=12.70, content=12.96
+  relevant_only: semantic_trusted=0.89, content_sharded=0.98, semantic_verified=1.92, naive=14.32, content=14.58
+
+stale op-steps by scenario x executor (all mixes, seeds):
+  true: naive=0, content=0, content_sharded=0, semantic_trusted=0, semantic_verified=0
+  W1: semantic_trusted=35, semantic_verified=0
+  W2: semantic_trusted=221, semantic_verified=0
+  W3: naive=0, content=0, content_sharded=0, semantic_trusted=93, semantic_verified=16
+  W4: semantic_trusted=39, semantic_verified=0
+
+verification/audit events (semantic_verified):
+  W1   realistic     seed1: [[1, 'usd_clean', 'rejected_at_verification']]
+  W1   realistic     seed2: [[1, 'usd_clean', 'rejected_at_verification']]
+  W1   realistic     seed3: [[1, 'usd_clean', 'rejected_at_verification']]
+  W1   realistic     seed4: [[1, 'usd_clean', 'rejected_at_verification']]
+  W1   realistic     seed5: [[1, 'usd_clean', 'rejected_at_verification']]
+  W1   relevant_only seed1: [[1, 'usd_clean', 'rejected_at_verification']]
+  W1   relevant_only seed2: [[1, 'usd_clean', 'rejected_at_verification']]
+  W1   relevant_only seed3: [[1, 'usd_clean', 'rejected_at_verification']]
+  W1   relevant_only seed4: [[1, 'usd_clean', 'rejected_at_verification']]
+  W1   relevant_only seed5: [[1, 'usd_clean', 'rejected_at_verification']]
+  W2   realistic     seed1: [[1, 'first_seen', 'rejected_at_verification']]
+  W2   realistic     seed2: [[1, 'first_seen', 'rejected_at_verification']]
+  W2   realistic     seed3: [[1, 'first_seen', 'rejected_at_verification']]
+  W2   realistic     seed4: [[1, 'first_seen', 'rejected_at_verification']]
+  W2   realistic     seed5: [[1, 'first_seen', 'rejected_at_verification']]
+  W2   relevant_only seed1: [[1, 'first_seen', 'rejected_at_verification']]
+  W2   relevant_only seed2: [[1, 'first_seen', 'rejected_at_verification']]
+  W2   relevant_only seed3: [[1, 'first_seen', 'rejected_at_verification']]
+  W2   relevant_only seed4: [[1, 'first_seen', 'rejected_at_verification']]
+  W2   relevant_only seed5: [[1, 'first_seen', 'rejected_at_verification']]
+  W3   realistic     seed1: [[5, 'fees', 'revoked_by_audit']]
+  W3   realistic     seed2: [[9, 'fees', 'revoked_by_audit']]
+  W3   realistic     seed3: [[11, 'fees', 'revoked_by_audit']]
+  W3   realistic     seed4: [[13, 'fees', 'revoked_by_audit']]
+  W3   realistic     seed5: [[20, 'fees', 'revoked_by_audit']]
+  W4   realistic     seed1: [[1, 'first_seen', 'rejected_at_verification']]
+  W4   realistic     seed2: [[1, 'first_seen', 'rejected_at_verification']]
+  W4   realistic     seed3: [[1, 'first_seen', 'rejected_at_verification']]
+  W4   realistic     seed4: [[1, 'first_seen', 'rejected_at_verification']]
+  W4   realistic     seed5: [[1, 'first_seen', 'rejected_at_verification']]
+  W4   relevant_only seed1: [[1, 'first_seen', 'rejected_at_verification']]
+  W4   relevant_only seed2: [[1, 'first_seen', 'rejected_at_verification']]
+  W4   relevant_only seed3: [[1, 'first_seen', 'rejected_at_verification']]
+  W4   relevant_only seed4: [[1, 'first_seen', 'rejected_at_verification']]
+  W4   relevant_only seed5: [[1, 'first_seen', 'rejected_at_verification']]
+
+Controls passed. S1=PASS E1=FAIL E2=FAIL
