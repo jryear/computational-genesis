@@ -142,6 +142,10 @@ MIXES = {
     "realistic": {"append": .25, "memo": .15, "currency": .05, "reorder": .10, "amount": .15,
                   "product": .10, "channel": .10, "refund": .10},
     "relevant_only": {"amount": .5, "append": .5},
+    # Phase B: every field and conditional path changes at some point
+    "all_fields": {"append": .15, "reorder": .08, "memo": .10, "currency": .07, "channel": .08,
+                   "amount": .08, "product": .06, "region": .07, "date": .07, "big_wire": .08,
+                   "version": .08, "refund": .08},
 }
 
 
@@ -172,9 +176,16 @@ def apply_edit(rows, edit):
         rows += [dict(r) for r in payload] + dup
     elif k == "reorder":
         rng.shuffle(rows)
+    elif k == "version":                                    # re-booked transaction, new amount
+        for r in rng.sample(rows, 3):
+            v = dict(r)
+            v["amount"] = f"{rng.uniform(5, 900):.2f}"
+            v["fingerprint"] = sign(v["txn_id"], v["amount"])
+            rows.append(v)
     else:
         idx = rng.sample(range(len(rows)), {"memo": 30, "amount": 10, "product": 20,
-                                            "channel": 20, "refund": 3, "currency": 5}[k])
+                                            "channel": 20, "refund": 3, "currency": 5,
+                                            "region": 15, "date": 15, "big_wire": 4}[k])
         for i in idx:
             r = rows[i]
             if k == "memo":
@@ -188,6 +199,14 @@ def apply_edit(rows, edit):
                 r["channel"] = rng.choice(list(CHANNELS))
             elif k == "refund":
                 r["memo"] = "REFUND"
+            elif k == "region":
+                r["region"] = rng.choice(["north", "south", "east", "west"])
+            elif k == "date":
+                r["date"] = f"2026-{rng.choice(['10', '11'])}-{rng.randint(1, 28):02d}"
+            elif k == "big_wire":                             # large wire transfer
+                r["channel"] = "wire"
+                r["amount"] = f"{rng.uniform(5000, 50000):.2f}"
+                r["fingerprint"] = sign(r["txn_id"], r["amount"])
             elif k == "currency":                             # booking correction
                 r["currency"] = rng.choice([c for c in RATES["2026-10"] if c != r["currency"]])
     return rows
