@@ -32,8 +32,9 @@ keys) **without ever serving a stale result**, including when a declaration is f
   - `first_seen`: table-level, order-sensitive.
   - `product_mix`: table-level, order-insensitive.
 - **Change streams:** 25 steps each, 5 seeds per mix. Two mixes:
-  - *realistic*: append 25%, memo edit 20%, reorder 10%, amount edit 15%, product edit 10%,
-    channel edit 10%, refund-memo edit 10%.
+  - *realistic*: append 25%, memo edit 15%, currency correction 5%, reorder 10%, amount edit
+    15%, product edit 10%, channel edit 10%, refund-memo edit 10%. (Amended before any run; see
+    the amendments section.)
   - *relevant-only*: amount edit 50%, append 50%.
 - **Executors:**
   - `naive`: recompute everything every step.
@@ -82,3 +83,15 @@ keys) **without ever serving a stale result**, including when a declaration is f
 - Any failed control.
 - Changes to the operations, streams, verifier sampling or audit rate after the first full run,
   unless they are reported as a new, separately labelled run.
+
+## Amendments before the first run
+
+1. **The realistic mix gains currency corrections at 5%, taken from memo edits (20% → 15%).**
+   - Found by control C1's unit test. No stream ever edited `currency`, so W1 (a declaration that
+     omits `currency`) could never produce a stale result, and control C1 could not pass.
+   - A false declaration is only dangerous when the omitted field changes. That is a property
+     the workloads have to exercise, not one the executor can assume.
+2. **`monthly_totals` now sums each month with `math.fsum` and rounds once.**
+   - Found by the verifier's own test against the *true* declarations. Per-row rounding made the
+     result depend on row order by a cent, so the declared order-insensitivity was false.
+   - The intended semantics never depended on order; the implementation did.
