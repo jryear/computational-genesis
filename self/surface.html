@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>self</title>
+<style>
+  :root { --bg:#f6f5f2; --fg:#16161a; --dim:#6b6b73; --line:#e3e1dc; --card:#ffffff; --acc:#1f6feb; --ok:#1a7f37; --bad:#cf222e; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0e0e11; --fg:#ecebe8; --dim:#8e8d96; --line:#24242a; --card:#16161b; --acc:#5b9dff; --ok:#3fb950; --bad:#ff6b6b; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.45 -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+  main { max-width:640px; margin:0 auto; padding:16px 16px 120px; }
+  h1 { font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin:24px 0 10px; font-weight:600; }
+  .brand { font-size:22px; font-weight:650; letter-spacing:-.02em; margin:8px 0 4px; }
+  .sub { color:var(--dim); font-size:13px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin:8px 0; }
+  .dec .q { font-weight:600; }
+  .dec .why { color:var(--dim); font-size:14px; margin:4px 0 10px; }
+  .opts { display:flex; gap:8px; flex-wrap:wrap; }
+  button.opt { border:1px solid var(--line); background:transparent; color:var(--fg); border-radius:999px; padding:8px 14px; font-size:15px; cursor:pointer; }
+  button.opt.rec { border-color:var(--acc); color:var(--acc); }
+  .done { color:var(--dim); font-size:14px; }
+  .intent { display:flex; justify-content:space-between; gap:12px; }
+  .intent b { font-weight:600; }
+  .intent span { color:var(--dim); font-size:14px; text-align:right; }
+  .turn { margin:10px 0; }
+  .turn.you { color:var(--dim); }
+  .turn .who { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); }
+  .engine { font-size:10px; border:1px solid var(--line); border-radius:6px; padding:1px 5px; margin-left:6px; color:var(--dim); }
+  .proof { font:12.5px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .proof .ok { color:var(--ok); } .proof .bad { color:var(--bad); }
+  details summary { cursor:pointer; color:var(--dim); font-size:14px; }
+  .mem { font-size:14px; color:var(--dim); margin:4px 0; }
+  form { position:fixed; left:0; right:0; bottom:0; background:var(--bg); border-top:1px solid var(--line); padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .row { max-width:640px; margin:0 auto; display:flex; gap:8px; }
+  input[type=text] { flex:1; min-width:0; border:1px solid var(--line); background:var(--card); color:var(--fg); border-radius:12px; padding:12px 14px; font-size:16px; }
+  select { border:1px solid var(--line); background:var(--card); color:var(--fg); border-radius:12px; padding:0 8px; font-size:14px; }
+  .thinking { color:var(--dim); font-size:14px; font-style:italic; }
+  .empty { color:var(--dim); font-size:14px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">self</div>
+  <div class="sub" id="meta">one memory · one voice · any engine</div>
+
+  <h1>Needs you</h1>
+  <div id="decisions"></div>
+
+  <h1>Intents</h1>
+  <div id="intents"></div>
+
+  <h1>Conversation</h1>
+  <div id="turns"></div>
+
+  <h1>Proof</h1>
+  <div id="proof"></div>
+
+  <details><summary>Memory</summary><div id="memory"></div></details>
+</main>
+<form id="f">
+  <div class="row">
+    <input id="t" type="text" placeholder="say anything" autocomplete="off">
+    <select id="e" title="engine"><option value="auto">auto</option><option value="claude">claude</option><option value="codex">codex</option></select>
+  </div>
+</form>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let pending = null;
+
+async function load() {
+  const s = await (await fetch("api/state")).json();
+  const open = s.decisions.filter(d => d.answer === null);
+  const closed = s.decisions.filter(d => d.answer !== null).slice(-3);
+  $("decisions").innerHTML = open.length ? open.map(d => `
+    <div class="card dec"><div class="q">${esc(d.question)}</div>
+      <div class="why">${esc(d.why)}</div>
+      <div class="opts">${d.options.map(o => `<button class="opt ${o===d.recommend?'rec':''}" data-id="${d.id}" data-c="${esc(o)}">${esc(o)}</button>`).join("")}</div>
+    </div>`).join("") + closed.map(d => `<div class="done">✓ ${esc(d.question)} → ${esc(d.answer)}</div>`).join("")
+    : `<div class="empty">Nothing needs you.</div>` + closed.map(d => `<div class="done">✓ ${esc(d.question)} → ${esc(d.answer)}</div>`).join("");
+  $("intents").innerHTML = s.intents.length ? s.intents.map(i =>
+    `<div class="card intent"><b>${esc(i.title)}</b><span>${esc(i.status)}</span></div>`).join("") : `<div class="empty">None yet. Say what you're after.</div>`;
+  const turns = s.turns.slice(-8);
+  $("turns").innerHTML = turns.map(t => t.kind === "you"
+    ? `<div class="turn you">${esc(t.text)}</div>`
+    : `<div class="turn"><div class="who">self<span class="engine">${esc(t.engine)} · ${t.secs}s</span></div>${esc(t.text)}</div>`).join("")
+    + (pending ? `<div class="turn you">${esc(pending)}</div><div class="thinking">working…</div>` : "");
+  $("proof").innerHTML = s.proof.length ? s.proof.slice(-6).reverse().map(p =>
+    `<div class="card proof"><span class="${p.exit===0?'ok':'bad'}">${p.exit===0?'✓':'✗'} exit ${p.exit}</span> · ${esc(p.cmd)} · ${p.secs}s · sha ${esc(p.sha256)}</div>`).join("")
+    : `<div class="empty">Nothing verified yet. Proof only appears when the runtime ran something.</div>`;
+  $("memory").innerHTML = s.memory.map(m => `<div class="mem">· ${esc(m)}</div>`).join("") || `<div class="mem">empty</div>`;
+  const n = s.turns.filter(t => t.kind === "self");
+  const eng = [...new Set(n.map(t => t.engine))];
+  $("meta").textContent = `one memory · one voice · ${eng.length ? eng.join(" + ") : "any engine"} · ${s.memory.length} remembered`;
+}
+
+document.addEventListener("click", async e => {
+  const b = e.target.closest("button.opt"); if (!b) return;
+  await fetch("api/answer", {method:"POST", body: JSON.stringify({id: b.dataset.id, choice: b.dataset.c})});
+  load();
+});
+$("f").addEventListener("submit", async e => {
+  e.preventDefault(); const text = $("t").value.trim(); if (!text || pending) return;
+  pending = text; $("t").value = ""; load();
+  const r = await fetch("api/say", {method:"POST", body: JSON.stringify({text, engine: $("e").value})});
+  pending = null; if (!r.ok) { const j = await r.json(); alert(j.error); } load();
+});
+load(); setInterval(() => { if (!pending) load(); }, 5000);
+</script>
+</body>
+</html>
