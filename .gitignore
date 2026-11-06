@@ -1,0 +1,3 @@
+.taskcache/
+__pycache__/
+*.pyc
