@@ -1,2 +1,16 @@
 {"utc": "2026-11-06T15:38:58.103263+00:00", "stage": "prepare_started"}
 {"utc": "2026-11-06T15:39:03.195647+00:00", "stage": "controls_complete", "admitted": true}
+{"utc": "2026-11-06T15:40:40.480553+00:00", "stage": "development_started", "role": "baseline"}
+{"utc": "2026-11-06T15:41:01.083481+00:00", "stage": "submission_tested", "role": "baseline", "id": "baseline-1", "passed": true}
+{"utc": "2026-11-06T15:41:05.005234+00:00", "stage": "development_frozen", "role": "baseline", "selected": "baseline-1"}
+{"utc": "2026-11-06T15:41:05.006962+00:00", "stage": "development_started", "role": "inventor"}
+{"utc": "2026-11-06T15:41:25.453106+00:00", "stage": "submission_tested", "role": "inventor", "id": "inventor-1", "passed": true}
+{"utc": "2026-11-06T15:41:29.822163+00:00", "stage": "development_frozen", "role": "inventor", "selected": "inventor-1"}
+{"utc": "2026-11-06T15:41:50.244985+00:00", "stage": "evaluation_started", "evaluation": "20261106T154150Z-9be0384c"}
+{"utc": "2026-11-06T15:41:51.423552+00:00", "stage": "trial_complete", "role": "baseline", "repetition": 0, "passed": true}
+{"utc": "2026-11-06T15:41:52.585314+00:00", "stage": "trial_complete", "role": "inventor", "repetition": 0, "passed": true}
+{"utc": "2026-11-06T15:41:53.788249+00:00", "stage": "trial_complete", "role": "inventor", "repetition": 1, "passed": true}
+{"utc": "2026-11-06T15:41:55.012687+00:00", "stage": "trial_complete", "role": "baseline", "repetition": 1, "passed": true}
+{"utc": "2026-11-06T15:41:56.209814+00:00", "stage": "trial_complete", "role": "baseline", "repetition": 2, "passed": true}
+{"utc": "2026-11-06T15:41:57.385681+00:00", "stage": "trial_complete", "role": "inventor", "repetition": 2, "passed": true}
+{"utc": "2026-11-06T15:41:57.387216+00:00", "stage": "evaluation_complete", "decision": {"H1_inventor": "supported_for_submission", "baseline_correct": true, "H2": "falsified_for_pair", "median_metrics": {"baseline": {"cpu_usec": 273820, "checkpoint_bytes": 5838, "active_request_seconds": 0.680988090694882}, "inventor": {"cpu_usec": 270442, "checkpoint_bytes": 6619, "active_request_seconds": 0.6555478067020886}}, "inventor_over_baseline": {"cpu_usec": 0.987663428529691, "checkpoint_bytes": 1.1337786913326482, "active_request_seconds": 0.9626421014693016}, "population_claim": null, "dollar_cost": null}}

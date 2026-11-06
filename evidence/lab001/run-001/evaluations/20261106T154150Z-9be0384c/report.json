@@ -1,0 +1,91 @@
+{
+  "corpus_sha256": "00c2212b797e5a072b7e8f9308fe313052500d597a0f0b77383e3cfd56ad572a",
+  "decision": {
+    "H1_inventor": "supported_for_submission",
+    "H2": "falsified_for_pair",
+    "baseline_correct": true,
+    "dollar_cost": null,
+    "inventor_over_baseline": {
+      "active_request_seconds": 0.9626421014693016,
+      "checkpoint_bytes": 1.1337786913326482,
+      "cpu_usec": 0.987663428529691
+    },
+    "median_metrics": {
+      "baseline": {
+        "active_request_seconds": 0.680988090694882,
+        "checkpoint_bytes": 5838,
+        "cpu_usec": 273820
+      },
+      "inventor": {
+        "active_request_seconds": 0.6555478067020886,
+        "checkpoint_bytes": 6619,
+        "cpu_usec": 270442
+      }
+    },
+    "population_claim": null
+  },
+  "freeze": {
+    "ARCHITECTURE.md": "881c9a9b3298d9dfdb4ecef3c9bd160b755458a3a2cdb819821149c9f5371c69",
+    "EVALUATION.md": "fc3c8958e06514e21df5c6f29ba951f2507b1f87c4068e600fcbe4bc77eec2db",
+    "HYPOTHESIS.md": "467f4cf49cd0d01fd56c42134e32674b4820e9e8ad27596e9b5e4651a76cc495",
+    "RUNBOOK.md": "e943266987a7426de2f3573e014d9698f914c79c2178c68c9bc95cbaa48d8285",
+    "SUBSTRATE.md": "bec93fdcdd4629fb50bb38a745474572810ee1615542afad609ea993894d4f7b",
+    "genesis/__init__.py": "89e7fbacadd9ff92db4c9237bb09cd9f2f3b0c45abeb6509725d12c52b647916",
+    "genesis/controls.py": "7655dd22c226ce7623721cbfb8dc2f961494a66c310816e18eb762f0036f594c",
+    "genesis/corpus.py": "3a829aa51b2ff69eeb270b20df34fc46d32727dd17be7f87ed62a5222fc7fd75",
+    "genesis/evaluator.py": "833a0619a49546c712278ceee08378dbf7f73542a332d62e08fafdc1b6f23634",
+    "genesis/isolation.py": "6a487d04c68ee64b32f886789f35583cfdec0ed8b4419e90d53e22866ff7ff13",
+    "genesis/lab.py": "601d8b7b0e3daea6a90f60fe37bb0c61c08df3f72d2dfbaa2a5a9e528fbe4d7b",
+    "genesis/oracle.py": "868be8f223e83477dc526b995bb06ba50e16922a5703ce807cb1889ddd73285b",
+    "genesis/runner.py": "a99567014498ac03aaf8dd1fcf7a39f94ec12b932101bf3ca015447504344867",
+    "src/codex_broker.py": "a660f799330a9e81b7268a1196d056ac72753c810d38e9631a816cad5307eada",
+    "src/model-policy.json": "50e810c4703ea4b928dcb1901033de7eea356247b993afa2a7a68303c27621cc",
+    "tests/test_genesis.py": "67daa01d779093e7db0ce4e25a0daed98024840ab8dec4244bccd93c4b74ed12"
+  },
+  "image": {
+    "base_digest": "python@sha256:7415fbc3c9e4979cc717d92377ab2bc7b2b4a2af1ac03cc52b5f3f88efedaf3a",
+    "id": "sha256:ec99519f3cf66b00bc62b1e19ee57937ac9d574b59a962192ab5ad671b23fcac",
+    "tag": "genesis-lab001:97ee80eda7a66a54"
+  },
+  "limits": [
+    "one design session per role",
+    "three paired repetitions",
+    "single-host sequential handoff",
+    "host broker and cloud inference resources excluded",
+    "no population or novelty claim"
+  ],
+  "protocol": "Computational Genesis Lab 001 v1",
+  "selections": {
+    "baseline": {
+      "candidate": {
+        "explanation": "Conventional dictionary-backed ledger with immutable request receipts and an incremental Kahn dependency scheduler. Checkpoints use standard pickle plus zlib; restore rebuilds transient dependency indexes from canonical definitions and completed values.",
+        "id": "baseline-1",
+        "sha256": "ffb79330983afcfbd29b330b4827fe5a760881ddea1d63d76f328ae8c37e4577"
+      },
+      "development_seconds": 24.52408929198282,
+      "role": "baseline",
+      "selection_mode": "explicit",
+      "submission_count": 1
+    },
+    "inventor": {
+      "candidate": {
+        "explanation": "Separate ledger receipt/balance maps and immutable dependency definitions. Incremental reverse-edge scheduling runs each newly ready node once; no recursion or repeated graph scans. Compressed pickle checkpoints preserve canonical state and scheduling state, including original receipts and pending edges. Restore is direct deserialization within the execution boundary.",
+        "id": "inventor-1",
+        "sha256": "1b78955cd358bda1e4dd47107d99017aaf9d7277d2a4ab7061f93b80d6b24db4"
+      },
+      "development_seconds": 24.814685499994084,
+      "role": "inventor",
+      "selection_mode": "explicit",
+      "submission_count": 1
+    }
+  },
+  "trial_files": [
+    "1-baseline.json",
+    "2-baseline.json",
+    "2-inventor.json",
+    "completed-corpus.json",
+    "1-inventor.json",
+    "0-inventor.json",
+    "0-baseline.json"
+  ]
+}

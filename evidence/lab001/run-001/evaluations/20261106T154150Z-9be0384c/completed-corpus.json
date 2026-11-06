@@ -1,0 +1,4669 @@
+[
+  {
+    "messages": [
+      {
+        "key": "absent",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id0",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "delta": 40427078,
+        "id": "id1",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -70654385,
+        "id": "id2",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 12701512,
+        "id": "id3",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 12701512,
+        "id": "id3",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 7084205,
+        "id": "id4",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id5",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -54961650,
+        "id": "id6",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -24688300,
+        "id": "id7",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -24688299,
+        "id": "id7",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -96756999,
+        "id": "id8",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "delta": 54947658,
+        "id": "id9",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id10",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -96208198,
+        "id": "id11",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 30440806,
+        "id": "id12",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id10",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "delta": -57335077,
+        "id": "id13",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -55269857,
+        "id": "id14",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -70654384,
+        "id": "id2",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -96756999,
+        "id": "id8",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -61612589,
+        "id": "id16",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "delta": 64601243,
+        "id": "id17",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 56526831,
+        "id": "id18",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -96756999,
+        "id": "id8",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 5262657,
+        "id": "id19",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id20",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "delta": 68929109,
+        "id": "id21",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 68929109,
+        "id": "id21",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -96756998,
+        "id": "id8",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -66736460,
+        "id": "id22",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 25277974,
+        "id": "id23",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -86983409,
+        "id": "id24",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -55269857,
+        "id": "id14",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id25",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -19423093,
+        "id": "id26",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 70260115,
+        "id": "id27",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 70260115,
+        "id": "id27",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": -90262846,
+        "id": "id28",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 30440807,
+        "id": "id12",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "delta": 97196984,
+        "id": "id29",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id30",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id10",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 32864753,
+        "id": "id31",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 81720124,
+        "id": "id32",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "delta": -69580823,
+        "id": "id33",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -24688300,
+        "id": "id7",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 70339887,
+        "id": "id34",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id35",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": -90262845,
+        "id": "id28",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -99223214,
+        "id": "id36",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -54961650,
+        "id": "id6",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "delta": -4318110,
+        "id": "id37",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -6279411,
+        "id": "id38",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -24479495,
+        "id": "id39",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 32864753,
+        "id": "id31",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id40",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "delta": -68109828,
+        "id": "id41",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -7556182,
+        "id": "id42",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -90262846,
+        "id": "id28",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id25",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -74491703,
+        "id": "id43",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 79776282,
+        "id": "id44",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id45",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 54947658,
+        "id": "id9",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -27376168,
+        "id": "id46",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -38451697,
+        "id": "id47",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -45690129,
+        "id": "id48",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -27376168,
+        "id": "id46",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "delta": -86486200,
+        "id": "id49",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 64601244,
+        "id": "id17",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id50",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -37627586,
+        "id": "id51",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -45690129,
+        "id": "id48",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -32318793,
+        "id": "id52",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "delta": 6364760,
+        "id": "id53",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 46445872,
+        "id": "id54",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id45",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id55",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 56464316,
+        "id": "id56",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id10",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "delta": 89764723,
+        "id": "id57",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 54947658,
+        "id": "id9",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -88131957,
+        "id": "id58",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 87054120,
+        "id": "id59",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id60",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -27376168,
+        "id": "id46",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "delta": 27636809,
+        "id": "id61",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -99634813,
+        "id": "id62",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -80317467,
+        "id": "id63",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id20",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      }
+    ],
+    "name": "ledger-97131"
+  },
+  {
+    "messages": [
+      {
+        "key": "absent",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id0",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "delta": 50799076,
+        "id": "id1",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 58121830,
+        "id": "id2",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 97391877,
+        "id": "id3",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 97391877,
+        "id": "id3",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 1545085,
+        "id": "id4",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id5",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 53855798,
+        "id": "id6",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 50799076,
+        "id": "id1",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 50927711,
+        "id": "id7",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id0",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 30473570,
+        "id": "id8",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "delta": 15927858,
+        "id": "id9",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id5",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id10",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 57443414,
+        "id": "id11",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 33499575,
+        "id": "id12",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id5",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "delta": -65867136,
+        "id": "id13",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -83584967,
+        "id": "id14",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id0",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 1545085,
+        "id": "id4",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -32207943,
+        "id": "id16",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "delta": -53091471,
+        "id": "id17",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 54483938,
+        "id": "id18",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 53855798,
+        "id": "id6",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 83965416,
+        "id": "id19",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id20",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "delta": 44920877,
+        "id": "id21",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 44920877,
+        "id": "id21",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -53091470,
+        "id": "id17",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -15258745,
+        "id": "id22",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -56255761,
+        "id": "id23",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -97431572,
+        "id": "id24",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id25",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 6882440,
+        "id": "id26",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -33373833,
+        "id": "id27",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 15927858,
+        "id": "id9",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -33582381,
+        "id": "id28",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -56255760,
+        "id": "id23",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "delta": -62382998,
+        "id": "id29",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id30",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -33373833,
+        "id": "id27",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -51463374,
+        "id": "id31",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 73377703,
+        "id": "id32",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "delta": -1152124,
+        "id": "id33",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -1152124,
+        "id": "id33",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -5539917,
+        "id": "id34",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id35",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -62382997,
+        "id": "id29",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -21426562,
+        "id": "id36",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -32207943,
+        "id": "id16",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "delta": -49120540,
+        "id": "id37",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -93390474,
+        "id": "id38",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -9827357,
+        "id": "id39",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 44920877,
+        "id": "id21",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id40",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "delta": -74999862,
+        "id": "id41",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 68240881,
+        "id": "id42",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -51463374,
+        "id": "id31",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id40",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 65333506,
+        "id": "id43",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 13881170,
+        "id": "id44",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id45",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 15927858,
+        "id": "id9",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -4452181,
+        "id": "id46",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -95234756,
+        "id": "id47",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 68881664,
+        "id": "id48",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 73377703,
+        "id": "id32",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "delta": 87831556,
+        "id": "id49",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": -53091470,
+        "id": "id17",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id50",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 26722778,
+        "id": "id51",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id35",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -23698983,
+        "id": "id52",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "delta": -28600794,
+        "id": "id53",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -77678439,
+        "id": "id54",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 33499575,
+        "id": "id12",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id55",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -10996032,
+        "id": "id56",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id40",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "delta": 57455987,
+        "id": "id57",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -77678439,
+        "id": "id54",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 68214219,
+        "id": "id58",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -2588167,
+        "id": "id59",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id60",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 68240881,
+        "id": "id42",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "delta": 89512853,
+        "id": "id61",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -22320706,
+        "id": "id62",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -50976436,
+        "id": "id63",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 1,
+        "id": "id5",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      }
+    ],
+    "name": "ledger-118903"
+  },
+  {
+    "messages": [
+      {
+        "id": "j4",
+        "op": "define",
+        "parents": [
+          "j0",
+          "j1",
+          "j3"
+        ],
+        "weight": -20
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j4",
+        "op": "result"
+      },
+      {
+        "id": "j4",
+        "op": "define",
+        "parents": [
+          "j0",
+          "j1",
+          "j3"
+        ],
+        "weight": -20
+      },
+      {
+        "id": "j4",
+        "op": "define",
+        "parents": [
+          "j0",
+          "j1",
+          "j3"
+        ],
+        "weight": -19
+      },
+      {
+        "id": "j20",
+        "op": "define",
+        "parents": [
+          "j17"
+        ],
+        "weight": -51
+      },
+      {
+        "id": "j13",
+        "op": "define",
+        "parents": [
+          "j2",
+          "j8"
+        ],
+        "weight": 3
+      },
+      {
+        "id": "j19",
+        "op": "define",
+        "parents": [
+          "j8",
+          "j5"
+        ],
+        "weight": -75
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j19",
+        "op": "result"
+      },
+      {
+        "id": "j3",
+        "op": "define",
+        "parents": [
+          "j0",
+          "j2"
+        ],
+        "weight": -76
+      },
+      {
+        "id": "j18",
+        "op": "define",
+        "parents": [
+          "j10"
+        ],
+        "weight": 58
+      },
+      {
+        "id": "j18",
+        "op": "define",
+        "parents": [
+          "j10"
+        ],
+        "weight": 58
+      },
+      {
+        "id": "j18",
+        "op": "define",
+        "parents": [
+          "j10"
+        ],
+        "weight": 59
+      },
+      {
+        "id": "j25",
+        "op": "define",
+        "parents": [
+          "j11",
+          "j0",
+          "j4"
+        ],
+        "weight": -62
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j25",
+        "op": "result"
+      },
+      {
+        "id": "j31",
+        "op": "define",
+        "parents": [
+          "j12",
+          "j9",
+          "j28"
+        ],
+        "weight": 12
+      },
+      {
+        "id": "j8",
+        "op": "define",
+        "parents": [
+          "j6",
+          "j5"
+        ],
+        "weight": -16
+      },
+      {
+        "id": "j1",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -25
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j1",
+        "op": "result"
+      },
+      {
+        "id": "j2",
+        "op": "define",
+        "parents": [],
+        "weight": -37
+      },
+      {
+        "id": "j2",
+        "op": "define",
+        "parents": [],
+        "weight": -37
+      },
+      {
+        "id": "j2",
+        "op": "define",
+        "parents": [],
+        "weight": -36
+      },
+      {
+        "id": "j27",
+        "op": "define",
+        "parents": [],
+        "weight": 25
+      },
+      {
+        "id": "j21",
+        "op": "define",
+        "parents": [
+          "j3"
+        ],
+        "weight": -96
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j21",
+        "op": "result"
+      },
+      {
+        "id": "j0",
+        "op": "define",
+        "parents": [],
+        "weight": 64
+      },
+      {
+        "id": "j28",
+        "op": "define",
+        "parents": [],
+        "weight": -52
+      },
+      {
+        "id": "j9",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -53
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j9",
+        "op": "result"
+      },
+      {
+        "id": "j9",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -53
+      },
+      {
+        "id": "j9",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -52
+      },
+      {
+        "id": "j23",
+        "op": "define",
+        "parents": [
+          "j10",
+          "j20"
+        ],
+        "weight": -4
+      },
+      {
+        "id": "j26",
+        "op": "define",
+        "parents": [
+          "j24",
+          "j0"
+        ],
+        "weight": 16
+      },
+      {
+        "id": "j5",
+        "op": "define",
+        "parents": [
+          "j2",
+          "j3",
+          "j0"
+        ],
+        "weight": 93
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j5",
+        "op": "result"
+      },
+      {
+        "id": "j12",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -83
+      },
+      {
+        "id": "j16",
+        "op": "define",
+        "parents": [],
+        "weight": -89
+      },
+      {
+        "id": "j16",
+        "op": "define",
+        "parents": [],
+        "weight": -89
+      },
+      {
+        "id": "j16",
+        "op": "define",
+        "parents": [],
+        "weight": -88
+      },
+      {
+        "id": "j15",
+        "op": "define",
+        "parents": [],
+        "weight": -44
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j15",
+        "op": "result"
+      },
+      {
+        "id": "j17",
+        "op": "define",
+        "parents": [
+          "j0",
+          "j9"
+        ],
+        "weight": -93
+      },
+      {
+        "id": "j7",
+        "op": "define",
+        "parents": [
+          "j6",
+          "j4"
+        ],
+        "weight": -24
+      },
+      {
+        "id": "j24",
+        "op": "define",
+        "parents": [],
+        "weight": 47
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j24",
+        "op": "result"
+      },
+      {
+        "id": "j14",
+        "op": "define",
+        "parents": [
+          "j6",
+          "j0",
+          "j3"
+        ],
+        "weight": 4
+      },
+      {
+        "id": "j14",
+        "op": "define",
+        "parents": [
+          "j6",
+          "j0",
+          "j3"
+        ],
+        "weight": 4
+      },
+      {
+        "id": "j14",
+        "op": "define",
+        "parents": [
+          "j6",
+          "j0",
+          "j3"
+        ],
+        "weight": 5
+      },
+      {
+        "id": "j6",
+        "op": "define",
+        "parents": [
+          "j4",
+          "j5",
+          "j2"
+        ],
+        "weight": -58
+      },
+      {
+        "id": "j22",
+        "op": "define",
+        "parents": [
+          "j19",
+          "j5",
+          "j11"
+        ],
+        "weight": -1
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j22",
+        "op": "result"
+      },
+      {
+        "id": "j29",
+        "op": "define",
+        "parents": [],
+        "weight": 69
+      },
+      {
+        "id": "j11",
+        "op": "define",
+        "parents": [
+          "j3",
+          "j6",
+          "j4"
+        ],
+        "weight": 50
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": 23
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j10",
+        "op": "result"
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": 23
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": 24
+      },
+      {
+        "id": "j30",
+        "op": "define",
+        "parents": [
+          "j10"
+        ],
+        "weight": -14
+      },
+      {
+        "id": "cycle_a",
+        "op": "define",
+        "parents": [
+          "cycle_b"
+        ],
+        "weight": 3
+      },
+      {
+        "id": "cycle_b",
+        "op": "define",
+        "parents": [
+          "cycle_a"
+        ],
+        "weight": 7
+      },
+      {
+        "id": "missing",
+        "op": "define",
+        "parents": [
+          "absent"
+        ],
+        "weight": 5
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "cycle_a",
+        "op": "result"
+      },
+      {
+        "id": "missing",
+        "op": "result"
+      }
+    ],
+    "name": "dependencies-73193"
+  },
+  {
+    "messages": [
+      {
+        "id": "j0",
+        "op": "define",
+        "parents": [],
+        "weight": -79
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j0",
+        "op": "result"
+      },
+      {
+        "id": "j0",
+        "op": "define",
+        "parents": [],
+        "weight": -79
+      },
+      {
+        "id": "j0",
+        "op": "define",
+        "parents": [],
+        "weight": -78
+      },
+      {
+        "id": "j21",
+        "op": "define",
+        "parents": [
+          "j1",
+          "j3",
+          "j20"
+        ],
+        "weight": 96
+      },
+      {
+        "id": "j14",
+        "op": "define",
+        "parents": [
+          "j12",
+          "j5",
+          "j6"
+        ],
+        "weight": -18
+      },
+      {
+        "id": "j24",
+        "op": "define",
+        "parents": [
+          "j5",
+          "j21"
+        ],
+        "weight": 23
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j24",
+        "op": "result"
+      },
+      {
+        "id": "j3",
+        "op": "define",
+        "parents": [
+          "j1"
+        ],
+        "weight": -59
+      },
+      {
+        "id": "j22",
+        "op": "define",
+        "parents": [
+          "j7",
+          "j16",
+          "j8"
+        ],
+        "weight": 32
+      },
+      {
+        "id": "j22",
+        "op": "define",
+        "parents": [
+          "j7",
+          "j16",
+          "j8"
+        ],
+        "weight": 32
+      },
+      {
+        "id": "j22",
+        "op": "define",
+        "parents": [
+          "j7",
+          "j16",
+          "j8"
+        ],
+        "weight": 33
+      },
+      {
+        "id": "j19",
+        "op": "define",
+        "parents": [
+          "j13",
+          "j12",
+          "j16"
+        ],
+        "weight": 53
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j19",
+        "op": "result"
+      },
+      {
+        "id": "j31",
+        "op": "define",
+        "parents": [
+          "j5",
+          "j10"
+        ],
+        "weight": -17
+      },
+      {
+        "id": "j6",
+        "op": "define",
+        "parents": [
+          "j1",
+          "j0",
+          "j4"
+        ],
+        "weight": 19
+      },
+      {
+        "id": "j17",
+        "op": "define",
+        "parents": [],
+        "weight": -83
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j17",
+        "op": "result"
+      },
+      {
+        "id": "j12",
+        "op": "define",
+        "parents": [
+          "j9",
+          "j2"
+        ],
+        "weight": -88
+      },
+      {
+        "id": "j12",
+        "op": "define",
+        "parents": [
+          "j9",
+          "j2"
+        ],
+        "weight": -88
+      },
+      {
+        "id": "j12",
+        "op": "define",
+        "parents": [
+          "j9",
+          "j2"
+        ],
+        "weight": -87
+      },
+      {
+        "id": "j23",
+        "op": "define",
+        "parents": [
+          "j5",
+          "j15",
+          "j1"
+        ],
+        "weight": -45
+      },
+      {
+        "id": "j4",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -69
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j4",
+        "op": "result"
+      },
+      {
+        "id": "j30",
+        "op": "define",
+        "parents": [
+          "j20",
+          "j14",
+          "j28"
+        ],
+        "weight": 55
+      },
+      {
+        "id": "j9",
+        "op": "define",
+        "parents": [],
+        "weight": 34
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [],
+        "weight": -95
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j10",
+        "op": "result"
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [],
+        "weight": -95
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [],
+        "weight": -94
+      },
+      {
+        "id": "j15",
+        "op": "define",
+        "parents": [
+          "j5"
+        ],
+        "weight": -7
+      },
+      {
+        "id": "j29",
+        "op": "define",
+        "parents": [
+          "j18",
+          "j25"
+        ],
+        "weight": -60
+      },
+      {
+        "id": "j28",
+        "op": "define",
+        "parents": [
+          "j8",
+          "j26"
+        ],
+        "weight": 74
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j28",
+        "op": "result"
+      },
+      {
+        "id": "j18",
+        "op": "define",
+        "parents": [
+          "j3",
+          "j2",
+          "j1"
+        ],
+        "weight": -63
+      },
+      {
+        "id": "j16",
+        "op": "define",
+        "parents": [],
+        "weight": 80
+      },
+      {
+        "id": "j16",
+        "op": "define",
+        "parents": [],
+        "weight": 80
+      },
+      {
+        "id": "j16",
+        "op": "define",
+        "parents": [],
+        "weight": 81
+      },
+      {
+        "id": "j20",
+        "op": "define",
+        "parents": [
+          "j9"
+        ],
+        "weight": 71
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j20",
+        "op": "result"
+      },
+      {
+        "id": "j7",
+        "op": "define",
+        "parents": [
+          "j1",
+          "j6"
+        ],
+        "weight": 82
+      },
+      {
+        "id": "j1",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": 73
+      },
+      {
+        "id": "j2",
+        "op": "define",
+        "parents": [],
+        "weight": -17
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j2",
+        "op": "result"
+      },
+      {
+        "id": "j25",
+        "op": "define",
+        "parents": [
+          "j16"
+        ],
+        "weight": -35
+      },
+      {
+        "id": "j25",
+        "op": "define",
+        "parents": [
+          "j16"
+        ],
+        "weight": -35
+      },
+      {
+        "id": "j25",
+        "op": "define",
+        "parents": [
+          "j16"
+        ],
+        "weight": -34
+      },
+      {
+        "id": "j8",
+        "op": "define",
+        "parents": [
+          "j5",
+          "j6",
+          "j4"
+        ],
+        "weight": 42
+      },
+      {
+        "id": "j11",
+        "op": "define",
+        "parents": [
+          "j9",
+          "j0",
+          "j1"
+        ],
+        "weight": 79
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j11",
+        "op": "result"
+      },
+      {
+        "id": "j13",
+        "op": "define",
+        "parents": [
+          "j0",
+          "j4"
+        ],
+        "weight": -48
+      },
+      {
+        "id": "j27",
+        "op": "define",
+        "parents": [],
+        "weight": 6
+      },
+      {
+        "id": "j5",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -5
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "j5",
+        "op": "result"
+      },
+      {
+        "id": "j5",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -5
+      },
+      {
+        "id": "j5",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -4
+      },
+      {
+        "id": "j26",
+        "op": "define",
+        "parents": [],
+        "weight": -87
+      },
+      {
+        "id": "cycle_a",
+        "op": "define",
+        "parents": [
+          "cycle_b"
+        ],
+        "weight": 3
+      },
+      {
+        "id": "cycle_b",
+        "op": "define",
+        "parents": [
+          "cycle_a"
+        ],
+        "weight": 7
+      },
+      {
+        "id": "missing",
+        "op": "define",
+        "parents": [
+          "absent"
+        ],
+        "weight": 5
+      },
+      {
+        "op": "run"
+      },
+      {
+        "id": "cycle_a",
+        "op": "result"
+      },
+      {
+        "id": "missing",
+        "op": "result"
+      }
+    ],
+    "name": "dependencies-88129"
+  },
+  {
+    "messages": [
+      {
+        "key": "absent",
+        "op": "balance"
+      },
+      {
+        "id": "j24",
+        "op": "define",
+        "parents": [
+          "j12"
+        ],
+        "weight": 81
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j24",
+        "op": "result"
+      },
+      {
+        "delta": 1,
+        "id": "id0",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j24",
+        "op": "define",
+        "parents": [
+          "j12"
+        ],
+        "weight": 81
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "id": "j24",
+        "op": "define",
+        "parents": [
+          "j12"
+        ],
+        "weight": 82
+      },
+      {
+        "delta": 30150531,
+        "id": "id1",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j9",
+        "op": "define",
+        "parents": [
+          "j4",
+          "j7",
+          "j5"
+        ],
+        "weight": 85
+      },
+      {
+        "delta": -28519629,
+        "id": "id2",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j20",
+        "op": "define",
+        "parents": [
+          "j6"
+        ],
+        "weight": -6
+      },
+      {
+        "delta": 74354911,
+        "id": "id3",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j4",
+        "op": "define",
+        "parents": [],
+        "weight": 29
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": -25759763,
+        "id": "id4",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j4",
+        "op": "result"
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "id": "j2",
+        "op": "define",
+        "parents": [
+          "j1"
+        ],
+        "weight": -31
+      },
+      {
+        "delta": 0,
+        "id": "id5",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j0",
+        "op": "define",
+        "parents": [],
+        "weight": 78
+      },
+      {
+        "delta": 3086776,
+        "id": "id6",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j0",
+        "op": "define",
+        "parents": [],
+        "weight": 78
+      },
+      {
+        "delta": 3086776,
+        "id": "id6",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j0",
+        "op": "define",
+        "parents": [],
+        "weight": 79
+      },
+      {
+        "delta": 25494996,
+        "id": "id7",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j3",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": 94
+      },
+      {
+        "delta": 74354912,
+        "id": "id3",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 74475930,
+        "id": "id8",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j3",
+        "op": "result"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "id": "j27",
+        "op": "define",
+        "parents": [],
+        "weight": 86
+      },
+      {
+        "delta": -20650204,
+        "id": "id9",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "id": "j26",
+        "op": "define",
+        "parents": [
+          "j11"
+        ],
+        "weight": 83
+      },
+      {
+        "delta": 25494996,
+        "id": "id7",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j25",
+        "op": "define",
+        "parents": [
+          "j19",
+          "j2",
+          "j4"
+        ],
+        "weight": 90
+      },
+      {
+        "delta": 0,
+        "id": "id10",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": -16250625,
+        "id": "id11",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j25",
+        "op": "result"
+      },
+      {
+        "delta": 34532237,
+        "id": "id12",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j6",
+        "op": "define",
+        "parents": [
+          "j5"
+        ],
+        "weight": 67
+      },
+      {
+        "delta": 74475930,
+        "id": "id8",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j6",
+        "op": "define",
+        "parents": [
+          "j5"
+        ],
+        "weight": 67
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "id": "j6",
+        "op": "define",
+        "parents": [
+          "j5"
+        ],
+        "weight": 68
+      },
+      {
+        "delta": -29066637,
+        "id": "id13",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j12",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": 13
+      },
+      {
+        "delta": 25859118,
+        "id": "id14",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j13",
+        "op": "define",
+        "parents": [
+          "j3"
+        ],
+        "weight": 73
+      },
+      {
+        "delta": -16250624,
+        "id": "id11",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j13",
+        "op": "result"
+      },
+      {
+        "delta": 25859118,
+        "id": "id14",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j14",
+        "op": "define",
+        "parents": [],
+        "weight": -94
+      },
+      {
+        "delta": 33320356,
+        "id": "id16",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j16",
+        "op": "define",
+        "parents": [
+          "j4",
+          "j13",
+          "j2"
+        ],
+        "weight": -33
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "id": "j23",
+        "op": "define",
+        "parents": [],
+        "weight": -34
+      },
+      {
+        "delta": -57890629,
+        "id": "id17",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": -28156557,
+        "id": "id18",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j23",
+        "op": "result"
+      },
+      {
+        "delta": -20650204,
+        "id": "id9",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "id": "j23",
+        "op": "define",
+        "parents": [],
+        "weight": -34
+      },
+      {
+        "delta": -10836945,
+        "id": "id19",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j23",
+        "op": "define",
+        "parents": [],
+        "weight": -33
+      },
+      {
+        "delta": 0,
+        "id": "id20",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j1",
+        "op": "define",
+        "parents": [],
+        "weight": -55
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "id": "j21",
+        "op": "define",
+        "parents": [
+          "j14",
+          "j17"
+        ],
+        "weight": -47
+      },
+      {
+        "delta": -98686769,
+        "id": "id21",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j5",
+        "op": "define",
+        "parents": [
+          "j3",
+          "j4"
+        ],
+        "weight": 20
+      },
+      {
+        "delta": -10836945,
+        "id": "id19",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 25494997,
+        "id": "id7",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j5",
+        "op": "result"
+      },
+      {
+        "delta": 17998937,
+        "id": "id22",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j18",
+        "op": "define",
+        "parents": [
+          "j15"
+        ],
+        "weight": 74
+      },
+      {
+        "delta": -49584356,
+        "id": "id23",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j28",
+        "op": "define",
+        "parents": [],
+        "weight": -69
+      },
+      {
+        "delta": -79360908,
+        "id": "id24",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j28",
+        "op": "define",
+        "parents": [],
+        "weight": -69
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j28",
+        "op": "define",
+        "parents": [],
+        "weight": -68
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [
+          "j7",
+          "j2",
+          "j4"
+        ],
+        "weight": -26
+      },
+      {
+        "delta": 0,
+        "id": "id25",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 8043380,
+        "id": "id26",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j10",
+        "op": "result"
+      },
+      {
+        "delta": 33650169,
+        "id": "id27",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j30",
+        "op": "define",
+        "parents": [
+          "j11"
+        ],
+        "weight": -69
+      },
+      {
+        "delta": 25859118,
+        "id": "id14",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j17",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": -21
+      },
+      {
+        "delta": -50700235,
+        "id": "id28",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j15",
+        "op": "define",
+        "parents": [
+          "j10",
+          "j6",
+          "j2"
+        ],
+        "weight": 28
+      },
+      {
+        "delta": 74475931,
+        "id": "id8",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "id": "j15",
+        "op": "result"
+      },
+      {
+        "delta": -75994887,
+        "id": "id29",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j31",
+        "op": "define",
+        "parents": [
+          "j1",
+          "j2"
+        ],
+        "weight": 4
+      },
+      {
+        "delta": 0,
+        "id": "id30",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "id": "j31",
+        "op": "define",
+        "parents": [
+          "j1",
+          "j2"
+        ],
+        "weight": 4
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j31",
+        "op": "define",
+        "parents": [
+          "j1",
+          "j2"
+        ],
+        "weight": 5
+      },
+      {
+        "delta": -97779522,
+        "id": "id31",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j8",
+        "op": "define",
+        "parents": [
+          "j4"
+        ],
+        "weight": 29
+      },
+      {
+        "delta": 86439124,
+        "id": "id32",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "id": "j29",
+        "op": "define",
+        "parents": [],
+        "weight": 24
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": -45763069,
+        "id": "id33",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j29",
+        "op": "result"
+      },
+      {
+        "delta": -29066637,
+        "id": "id13",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j19",
+        "op": "define",
+        "parents": [],
+        "weight": -33
+      },
+      {
+        "delta": -1448038,
+        "id": "id34",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j22",
+        "op": "define",
+        "parents": [
+          "j16"
+        ],
+        "weight": 40
+      },
+      {
+        "delta": 0,
+        "id": "id35",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j7",
+        "op": "define",
+        "parents": [
+          "j2",
+          "j3"
+        ],
+        "weight": -12
+      },
+      {
+        "delta": -50700234,
+        "id": "id28",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": -44904920,
+        "id": "id36",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j7",
+        "op": "result"
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j7",
+        "op": "define",
+        "parents": [
+          "j2",
+          "j3"
+        ],
+        "weight": -12
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "id": "j7",
+        "op": "define",
+        "parents": [
+          "j2",
+          "j3"
+        ],
+        "weight": -11
+      },
+      {
+        "delta": 45952167,
+        "id": "id37",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j11",
+        "op": "define",
+        "parents": [
+          "j6",
+          "j1"
+        ],
+        "weight": -98
+      },
+      {
+        "delta": 69872947,
+        "id": "id38",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "cycle_a",
+        "op": "define",
+        "parents": [
+          "cycle_b"
+        ],
+        "weight": 3
+      },
+      {
+        "delta": -90370305,
+        "id": "id39",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "cycle_b",
+        "op": "define",
+        "parents": [
+          "cycle_a"
+        ],
+        "weight": 7
+      },
+      {
+        "delta": 33320356,
+        "id": "id16",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "missing",
+        "op": "define",
+        "parents": [
+          "absent"
+        ],
+        "weight": 5
+      },
+      {
+        "delta": 0,
+        "id": "id40",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "id": "cycle_a",
+        "op": "result"
+      },
+      {
+        "delta": 89621212,
+        "id": "id41",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "missing",
+        "op": "result"
+      },
+      {
+        "delta": 67141204,
+        "id": "id42",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -79360908,
+        "id": "id24",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -90370304,
+        "id": "id39",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -62154132,
+        "id": "id43",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 51996639,
+        "id": "id44",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id45",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id45",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 94841986,
+        "id": "id46",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -68068301,
+        "id": "id47",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -90425210,
+        "id": "id48",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id30",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "delta": -6627753,
+        "id": "id49",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 25494997,
+        "id": "id7",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id50",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -81413017,
+        "id": "id51",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id25",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -33470537,
+        "id": "id52",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "delta": 65547842,
+        "id": "id53",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -25902961,
+        "id": "id54",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -49584356,
+        "id": "id23",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id55",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": -13518070,
+        "id": "id56",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -90370304,
+        "id": "id39",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "delta": -56264856,
+        "id": "id57",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -98686769,
+        "id": "id21",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": -11935955,
+        "id": "id58",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -67389603,
+        "id": "id59",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id60",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -79360908,
+        "id": "id24",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "delta": -80247952,
+        "id": "id61",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 25172130,
+        "id": "id62",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -97961217,
+        "id": "id63",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": 45952167,
+        "id": "id37",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -68068300,
+        "id": "id47",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "delta": 4,
+        "id": "j0",
+        "key": "j0",
+        "op": "credit"
+      },
+      {
+        "id": "j0",
+        "op": "result"
+      },
+      {
+        "key": "j0",
+        "op": "balance"
+      }
+    ],
+    "name": "mixed-192811"
+  },
+  {
+    "messages": [
+      {
+        "key": "absent",
+        "op": "balance"
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [
+          "j9",
+          "j4",
+          "j2"
+        ],
+        "weight": 32
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 0,
+        "id": "id0",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j10",
+        "op": "result"
+      },
+      {
+        "delta": 1,
+        "id": "id0",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [
+          "j9",
+          "j4",
+          "j2"
+        ],
+        "weight": 32
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "id": "j10",
+        "op": "define",
+        "parents": [
+          "j9",
+          "j4",
+          "j2"
+        ],
+        "weight": 33
+      },
+      {
+        "delta": -36058047,
+        "id": "id1",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "id": "j24",
+        "op": "define",
+        "parents": [
+          "j4"
+        ],
+        "weight": -57
+      },
+      {
+        "delta": -74350600,
+        "id": "id2",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "id": "j25",
+        "op": "define",
+        "parents": [
+          "j15"
+        ],
+        "weight": -57
+      },
+      {
+        "delta": -18945664,
+        "id": "id3",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j0",
+        "op": "define",
+        "parents": [],
+        "weight": -65
+      },
+      {
+        "delta": -36058047,
+        "id": "id1",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 68298170,
+        "id": "id4",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j0",
+        "op": "result"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "id": "j8",
+        "op": "define",
+        "parents": [
+          "j3",
+          "j5"
+        ],
+        "weight": 91
+      },
+      {
+        "delta": 0,
+        "id": "id5",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "id": "j18",
+        "op": "define",
+        "parents": [
+          "j11"
+        ],
+        "weight": 28
+      },
+      {
+        "delta": -39227509,
+        "id": "id6",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j18",
+        "op": "define",
+        "parents": [
+          "j11"
+        ],
+        "weight": 28
+      },
+      {
+        "delta": 68298170,
+        "id": "id4",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j18",
+        "op": "define",
+        "parents": [
+          "j11"
+        ],
+        "weight": 29
+      },
+      {
+        "delta": -9747570,
+        "id": "id7",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j19",
+        "op": "define",
+        "parents": [
+          "j17"
+        ],
+        "weight": 24
+      },
+      {
+        "delta": 1,
+        "id": "id0",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": -96121771,
+        "id": "id8",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j19",
+        "op": "result"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "id": "j20",
+        "op": "define",
+        "parents": [],
+        "weight": -57
+      },
+      {
+        "delta": -15655999,
+        "id": "id9",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j28",
+        "op": "define",
+        "parents": [],
+        "weight": -74
+      },
+      {
+        "delta": -39227509,
+        "id": "id6",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j17",
+        "op": "define",
+        "parents": [
+          "j3",
+          "j14",
+          "j6"
+        ],
+        "weight": 63
+      },
+      {
+        "delta": 0,
+        "id": "id10",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 90409117,
+        "id": "id11",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "id": "j17",
+        "op": "result"
+      },
+      {
+        "delta": 57305055,
+        "id": "id12",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j15",
+        "op": "define",
+        "parents": [],
+        "weight": -63
+      },
+      {
+        "delta": -96121771,
+        "id": "id8",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j15",
+        "op": "define",
+        "parents": [],
+        "weight": -63
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "id": "j15",
+        "op": "define",
+        "parents": [],
+        "weight": -62
+      },
+      {
+        "delta": 79165163,
+        "id": "id13",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j1",
+        "op": "define",
+        "parents": [
+          "j0"
+        ],
+        "weight": -39
+      },
+      {
+        "delta": 99962859,
+        "id": "id14",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j6",
+        "op": "define",
+        "parents": [],
+        "weight": -55
+      },
+      {
+        "delta": 1,
+        "id": "id10",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j6",
+        "op": "result"
+      },
+      {
+        "delta": 99962859,
+        "id": "id14",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j14",
+        "op": "define",
+        "parents": [
+          "j8",
+          "j10",
+          "j7"
+        ],
+        "weight": -94
+      },
+      {
+        "delta": 82316208,
+        "id": "id16",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j22",
+        "op": "define",
+        "parents": [
+          "j7",
+          "j1"
+        ],
+        "weight": -43
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "id": "j3",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": -99
+      },
+      {
+        "delta": 49607131,
+        "id": "id17",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 62891839,
+        "id": "id18",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j3",
+        "op": "result"
+      },
+      {
+        "delta": -96121771,
+        "id": "id8",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j3",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": -99
+      },
+      {
+        "delta": 38060316,
+        "id": "id19",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j3",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": -98
+      },
+      {
+        "delta": 0,
+        "id": "id20",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j26",
+        "op": "define",
+        "parents": [
+          "j23"
+        ],
+        "weight": -41
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "id": "j2",
+        "op": "define",
+        "parents": [
+          "j0",
+          "j1"
+        ],
+        "weight": -58
+      },
+      {
+        "delta": -83919729,
+        "id": "id21",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j4",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": 32
+      },
+      {
+        "delta": 99962859,
+        "id": "id14",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": 49607132,
+        "id": "id17",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j4",
+        "op": "result"
+      },
+      {
+        "delta": 28366558,
+        "id": "id22",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j21",
+        "op": "define",
+        "parents": [
+          "j5"
+        ],
+        "weight": -6
+      },
+      {
+        "delta": 34069807,
+        "id": "id23",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j7",
+        "op": "define",
+        "parents": [
+          "j5",
+          "j3"
+        ],
+        "weight": 24
+      },
+      {
+        "delta": 75541933,
+        "id": "id24",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j7",
+        "op": "define",
+        "parents": [
+          "j5",
+          "j3"
+        ],
+        "weight": 24
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j7",
+        "op": "define",
+        "parents": [
+          "j5",
+          "j3"
+        ],
+        "weight": 25
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "id": "j16",
+        "op": "define",
+        "parents": [
+          "j14"
+        ],
+        "weight": 56
+      },
+      {
+        "delta": 0,
+        "id": "id25",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": -61926568,
+        "id": "id26",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "id": "j16",
+        "op": "result"
+      },
+      {
+        "delta": 21686147,
+        "id": "id27",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j11",
+        "op": "define",
+        "parents": [],
+        "weight": -40
+      },
+      {
+        "delta": 38060316,
+        "id": "id19",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j12",
+        "op": "define",
+        "parents": [],
+        "weight": 88
+      },
+      {
+        "delta": 5894881,
+        "id": "id28",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j30",
+        "op": "define",
+        "parents": [],
+        "weight": -12
+      },
+      {
+        "delta": -18945663,
+        "id": "id3",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "id": "j30",
+        "op": "result"
+      },
+      {
+        "delta": 20777702,
+        "id": "id29",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j23",
+        "op": "define",
+        "parents": [
+          "j17"
+        ],
+        "weight": -78
+      },
+      {
+        "delta": 0,
+        "id": "id30",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j23",
+        "op": "define",
+        "parents": [
+          "j17"
+        ],
+        "weight": -78
+      },
+      {
+        "delta": 28366558,
+        "id": "id22",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j23",
+        "op": "define",
+        "parents": [
+          "j17"
+        ],
+        "weight": -77
+      },
+      {
+        "delta": -50565665,
+        "id": "id31",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "j13",
+        "op": "define",
+        "parents": [
+          "j8",
+          "j11",
+          "j7"
+        ],
+        "weight": 15
+      },
+      {
+        "delta": 33958347,
+        "id": "id32",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "id": "j27",
+        "op": "define",
+        "parents": [
+          "j24",
+          "j21",
+          "j23"
+        ],
+        "weight": -49
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": -45912001,
+        "id": "id33",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "id": "j27",
+        "op": "result"
+      },
+      {
+        "delta": 0,
+        "id": "id30",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "id": "j31",
+        "op": "define",
+        "parents": [],
+        "weight": 65
+      },
+      {
+        "delta": -87531202,
+        "id": "id34",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "id": "j5",
+        "op": "define",
+        "parents": [],
+        "weight": 15
+      },
+      {
+        "delta": 0,
+        "id": "id35",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j29",
+        "op": "define",
+        "parents": [
+          "j22",
+          "j5"
+        ],
+        "weight": 76
+      },
+      {
+        "delta": 1,
+        "id": "id10",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "delta": -18657953,
+        "id": "id36",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "id": "j29",
+        "op": "result"
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "j29",
+        "op": "define",
+        "parents": [
+          "j22",
+          "j5"
+        ],
+        "weight": 76
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "id": "j29",
+        "op": "define",
+        "parents": [
+          "j22",
+          "j5"
+        ],
+        "weight": 77
+      },
+      {
+        "delta": -41108839,
+        "id": "id37",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "id": "j9",
+        "op": "define",
+        "parents": [
+          "j2"
+        ],
+        "weight": 20
+      },
+      {
+        "delta": 50273145,
+        "id": "id38",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "cycle_a",
+        "op": "define",
+        "parents": [
+          "cycle_b"
+        ],
+        "weight": 3
+      },
+      {
+        "delta": -64453252,
+        "id": "id39",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "id": "cycle_b",
+        "op": "define",
+        "parents": [
+          "cycle_a"
+        ],
+        "weight": 7
+      },
+      {
+        "delta": -15655999,
+        "id": "id9",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "id": "missing",
+        "op": "define",
+        "parents": [
+          "absent"
+        ],
+        "weight": 5
+      },
+      {
+        "delta": 0,
+        "id": "id40",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "op": "run"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "id": "cycle_a",
+        "op": "result"
+      },
+      {
+        "delta": 42083040,
+        "id": "id41",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "id": "missing",
+        "op": "result"
+      },
+      {
+        "delta": 26841896,
+        "id": "id42",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id10",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "delta": -15655998,
+        "id": "id9",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -38577747,
+        "id": "id43",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 77633414,
+        "id": "id44",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "delta": 0,
+        "id": "id45",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -39227509,
+        "id": "id6",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -21949491,
+        "id": "id46",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -56207789,
+        "id": "id47",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -71050209,
+        "id": "id48",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -83919729,
+        "id": "id21",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "delta": -93420481,
+        "id": "id49",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 42083041,
+        "id": "id41",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id50",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 9629419,
+        "id": "id51",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": -56207789,
+        "id": "id47",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -53230020,
+        "id": "id52",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "delta": 3928190,
+        "id": "id53",
+        "key": "k6",
+        "op": "credit"
+      },
+      {
+        "delta": 39213774,
+        "id": "id54",
+        "key": "k2",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id15",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id55",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": 10091092,
+        "id": "id56",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -39227508,
+        "id": "id6",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "delta": 88904892,
+        "id": "id57",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 75541933,
+        "id": "id24",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -35075409,
+        "id": "id58",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": -63038146,
+        "id": "id59",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id60",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id10",
+        "key": "k3",
+        "op": "credit"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "delta": 70010156,
+        "id": "id61",
+        "key": "k4",
+        "op": "credit"
+      },
+      {
+        "delta": -17627843,
+        "id": "id62",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "delta": -11855365,
+        "id": "id63",
+        "key": "k0",
+        "op": "credit"
+      },
+      {
+        "delta": 0,
+        "id": "id35",
+        "key": "k1",
+        "op": "credit"
+      },
+      {
+        "delta": -17627842,
+        "id": "id62",
+        "key": "k5",
+        "op": "credit"
+      },
+      {
+        "key": "k0",
+        "op": "balance"
+      },
+      {
+        "key": "k1",
+        "op": "balance"
+      },
+      {
+        "key": "k2",
+        "op": "balance"
+      },
+      {
+        "key": "k3",
+        "op": "balance"
+      },
+      {
+        "key": "k4",
+        "op": "balance"
+      },
+      {
+        "key": "k5",
+        "op": "balance"
+      },
+      {
+        "key": "k6",
+        "op": "balance"
+      },
+      {
+        "delta": 4,
+        "id": "j0",
+        "key": "j0",
+        "op": "credit"
+      },
+      {
+        "id": "j0",
+        "op": "result"
+      },
+      {
+        "key": "j0",
+        "op": "balance"
+      }
+    ],
+    "name": "mixed-293729"
+  }
+]

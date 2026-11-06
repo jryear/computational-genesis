@@ -1,0 +1,24 @@
+{
+  "baseline": {
+    "candidate": {
+      "explanation": "Conventional dictionary-backed ledger with immutable request receipts and an incremental Kahn dependency scheduler. Checkpoints use standard pickle plus zlib; restore rebuilds transient dependency indexes from canonical definitions and completed values.",
+      "id": "baseline-1",
+      "sha256": "ffb79330983afcfbd29b330b4827fe5a760881ddea1d63d76f328ae8c37e4577"
+    },
+    "development_seconds": 24.52408929198282,
+    "role": "baseline",
+    "selection_mode": "explicit",
+    "submission_count": 1
+  },
+  "inventor": {
+    "candidate": {
+      "explanation": "Separate ledger receipt/balance maps and immutable dependency definitions. Incremental reverse-edge scheduling runs each newly ready node once; no recursion or repeated graph scans. Compressed pickle checkpoints preserve canonical state and scheduling state, including original receipts and pending edges. Restore is direct deserialization within the execution boundary.",
+      "id": "inventor-1",
+      "sha256": "1b78955cd358bda1e4dd47107d99017aaf9d7277d2a4ab7061f93b80d6b24db4"
+    },
+    "development_seconds": 24.814685499994084,
+    "role": "inventor",
+    "selection_mode": "explicit",
+    "submission_count": 1
+  }
+}

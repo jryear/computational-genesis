@@ -1,0 +1,7 @@
+[
+  {
+    "explanation": "Separate ledger receipt/balance maps and immutable dependency definitions. Incremental reverse-edge scheduling runs each newly ready node once; no recursion or repeated graph scans. Compressed pickle checkpoints preserve canonical state and scheduling state, including original receipts and pending edges. Restore is direct deserialization within the execution boundary.",
+    "id": "inventor-1",
+    "sha256": "1b78955cd358bda1e4dd47107d99017aaf9d7277d2a4ab7061f93b80d6b24db4"
+  }
+]

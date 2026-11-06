@@ -1,0 +1,83 @@
+{
+  "auth": "existing_codex_chatgpt",
+  "calls": [
+    {
+      "arguments": {
+        "explanation": "Separate ledger receipt/balance maps and immutable dependency definitions. Incremental reverse-edge scheduling runs each newly ready node once; no recursion or repeated graph scans. Compressed pickle checkpoints preserve canonical state and scheduling state, including original receipts and pending edges. Restore is direct deserialization within the execution boundary.",
+        "source": "import pickle\nimport zlib\nfrom collections import deque\n\nclass Engine:\n    def __init__(self, snapshot=None):\n        if snapshot is None:\n            self.bal = {}\n            self.receipts = {}\n            self.jobs = {}\n            self.done = {}\n            self.wait = {}\n            self.remaining = {}\n            self.sums = {}\n            self.queue = deque()\n        else:\n            (self.bal, self.receipts, self.jobs, self.done, self.wait,\n             self.remaining, self.sums, self.queue) = pickle.loads(zlib.decompress(snapshot))\n\n    def handle(self, message):\n        op = message['op']\n        if op == 'balance':\n            return {'total': self.bal.get(message['key'], 0)}\n        if op == 'credit':\n            ident, key, delta = message['id'], message['key'], message['delta']\n            old = self.receipts.get(ident)\n            if old is not None:\n                if old[0] != key or old[1] != delta:\n                    return {'ok': False, 'error': 'conflict'}\n                return {'ok': True, 'total': old[2]}\n            total = self.bal.get(key, 0) + delta\n            self.bal[key] = total\n            self.receipts[ident] = (key, delta, total)\n            return {'ok': True, 'total': total}\n        if op == 'define':\n            ident = message['id']\n            parents = tuple(message['parents'])\n            weight = message['weight']\n            old = self.jobs.get(ident)\n            if old is not None:\n                if old != (parents, weight):\n                    return {'ok': False, 'error': 'conflict'}\n                return {'ok': True}\n            self.jobs[ident] = (parents, weight)\n            missing = 0\n            value = weight\n            for parent in parents:\n                if parent in self.done:\n                    value += self.done[parent]\n                else:\n                    missing += 1\n                    self.wait.setdefault(parent, []).append(ident)\n            self.remaining[ident] = missing\n            self.sums[ident] = value\n            if not missing:\n                self.queue.append(ident)\n            return {'ok': True}\n        if op == 'run':\n            while self.queue:\n                ident = self.queue.popleft()\n                value = self.sums.pop(ident)\n                del self.remaining[ident]\n                self.done[ident] = value\n                for child in self.wait.pop(ident, ()):\n                    self.sums[child] += value\n                    count = self.remaining[child] - 1\n                    self.remaining[child] = count\n                    if not count:\n                        self.queue.append(child)\n            return {'done': self.done.copy()}\n        if op == 'result':\n            ident = message['id']\n            if ident in self.done:\n                return {'ready': True, 'value': self.done[ident]}\n            return {'ready': False, 'value': None}\n\n    def snapshot(self):\n        return zlib.compress(pickle.dumps((self.bal, self.receipts, self.jobs,\n            self.done, self.wait, self.remaining, self.sums, self.queue), protocol=5), 1)\n"
+      },
+      "result": {
+        "complexity": {
+          "ast_nodes": 696,
+          "classes": 1,
+          "functions": 3,
+          "imports": 3,
+          "source_bytes": 3089,
+          "syntax_valid": true
+        },
+        "failures": [],
+        "metrics": {
+          "active_request_seconds": 0.18227245711022988,
+          "checkpoint_bytes": 182,
+          "cpu_usec": 88684,
+          "elapsed_seconds": 0.3925442500039935,
+          "memory_peak_bytes": 16523264,
+          "tasks_peak": 7,
+          "transport_bytes": 5662
+        },
+        "passed_public_tests": true,
+        "submission": "inventor-1",
+        "wrong_public_responses": []
+      },
+      "tool": "develop"
+    },
+    {
+      "arguments": {
+        "submission": "inventor-1"
+      },
+      "result": {
+        "ok": true,
+        "selected": "inventor-1"
+      },
+      "tool": "select"
+    }
+  ],
+  "cost_usd": null,
+  "declared_tools": [
+    "develop",
+    "select"
+  ],
+  "effective_model": "gpt-6.1-sol",
+  "effort": "low",
+  "environment_access": false,
+  "instruction_sources": 0,
+  "latency_seconds": 24.311454334005248,
+  "messages": [
+    "Selected and froze `inventor-1`. Public tests passed with no failures.\n\nImplemented separate ledger maps, incremental dependency scheduling, and compressed checkpoints preserving recovery state. Hidden correctness and comparative efficiency remain unverified."
+  ],
+  "prompt_bytes": 7702,
+  "provider": "openai",
+  "requested_model": "gpt-6.1-sol",
+  "status": "completed",
+  "tool_schema_bytes": 642,
+  "unexpected_capabilities": [],
+  "usage": {
+    "last": {
+      "cacheWriteInputTokens": 0,
+      "cachedInputTokens": 0,
+      "inputTokens": 2961,
+      "outputTokens": 45,
+      "reasoningOutputTokens": 0,
+      "totalTokens": 3006
+    },
+    "modelContextWindow": 258400,
+    "total": {
+      "cacheWriteInputTokens": 0,
+      "cachedInputTokens": 2560,
+      "inputTokens": 7801,
+      "outputTokens": 904,
+      "reasoningOutputTokens": 0,
+      "totalTokens": 8705
+    }
+  }
+}

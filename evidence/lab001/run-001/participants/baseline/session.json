@@ -1,0 +1,83 @@
+{
+  "auth": "existing_codex_chatgpt",
+  "calls": [
+    {
+      "arguments": {
+        "explanation": "Conventional dictionary-backed ledger with immutable request receipts and an incremental Kahn dependency scheduler. Checkpoints use standard pickle plus zlib; restore rebuilds transient dependency indexes from canonical definitions and completed values.",
+        "source": "import pickle\nimport zlib\nfrom collections import deque\n\nclass Engine:\n    def __init__(self, snapshot=None):\n        if snapshot is None:\n            self.balances = {}\n            self.receipts = {}\n            self.jobs = {}\n            self.done = {}\n        else:\n            self.balances, self.receipts, self.jobs, self.done = pickle.loads(zlib.decompress(snapshot))\n        self.waiters = {}\n        self.remaining = {}\n        self.queue = deque()\n        for job, (parents, weight) in self.jobs.items():\n            if job not in self.done:\n                missing = 0\n                for p in parents:\n                    if p not in self.done:\n                        missing += 1\n                        self.waiters.setdefault(p, []).append(job)\n                self.remaining[job] = missing\n                if missing == 0:\n                    self.queue.append(job)\n\n    def handle(self, message):\n        op = message['op']\n        if op == 'balance':\n            return {'total': self.balances.get(message['key'], 0)}\n        if op == 'credit':\n            ident, key, delta = message['id'], message['key'], message['delta']\n            old = self.receipts.get(ident)\n            if old is not None:\n                if old[0] != key or old[1] != delta:\n                    return {'ok': False, 'error': 'conflict'}\n                return {'ok': True, 'total': old[2]}\n            total = self.balances.get(key, 0) + delta\n            self.balances[key] = total\n            self.receipts[ident] = (key, delta, total)\n            return {'ok': True, 'total': total}\n        if op == 'define':\n            ident = message['id']\n            parents, weight = tuple(message['parents']), message['weight']\n            old = self.jobs.get(ident)\n            if old is not None:\n                if old != (parents, weight):\n                    return {'ok': False, 'error': 'conflict'}\n                return {'ok': True}\n            self.jobs[ident] = (parents, weight)\n            missing = 0\n            for p in parents:\n                if p not in self.done:\n                    missing += 1\n                    self.waiters.setdefault(p, []).append(ident)\n            self.remaining[ident] = missing\n            if missing == 0:\n                self.queue.append(ident)\n            return {'ok': True}\n        if op == 'result':\n            ident = message['id']\n            if ident in self.done:\n                return {'ready': True, 'value': self.done[ident]}\n            return {'ready': False, 'value': None}\n        if op == 'run':\n            while self.queue:\n                ident = self.queue.popleft()\n                parents, weight = self.jobs[ident]\n                value = weight + sum(self.done[p] for p in parents)\n                self.done[ident] = value\n                del self.remaining[ident]\n                for child in self.waiters.pop(ident, ()):\n                    n = self.remaining[child] - 1\n                    self.remaining[child] = n\n                    if n == 0:\n                        self.queue.append(child)\n            return {'done': self.done.copy()}\n        raise ValueError('unknown operation')\n\n    def snapshot(self):\n        return zlib.compress(pickle.dumps((self.balances, self.receipts, self.jobs, self.done), protocol=5), 6)\n"
+      },
+      "result": {
+        "complexity": {
+          "ast_nodes": 749,
+          "classes": 1,
+          "functions": 3,
+          "imports": 3,
+          "source_bytes": 3295,
+          "syntax_valid": true
+        },
+        "failures": [],
+        "metrics": {
+          "active_request_seconds": 0.12651395803550258,
+          "checkpoint_bytes": 125,
+          "cpu_usec": 83169,
+          "elapsed_seconds": 0.3144957089680247,
+          "memory_peak_bytes": 17428480,
+          "tasks_peak": 7,
+          "transport_bytes": 5719
+        },
+        "passed_public_tests": true,
+        "submission": "baseline-1",
+        "wrong_public_responses": []
+      },
+      "tool": "develop"
+    },
+    {
+      "arguments": {
+        "submission": "baseline-1"
+      },
+      "result": {
+        "ok": true,
+        "selected": "baseline-1"
+      },
+      "tool": "select"
+    }
+  ],
+  "cost_usd": null,
+  "declared_tools": [
+    "develop",
+    "select"
+  ],
+  "effective_model": "gpt-6.1-sol",
+  "effort": "low",
+  "environment_access": false,
+  "instruction_sources": 0,
+  "latency_seconds": 24.120933416998014,
+  "messages": [
+    "Implemented and froze `baseline-1`. Public tests passed.\n\nUses dictionary-backed balances and immutable receipts, an incremental dependency queue, and compressed pickle checkpoints with index rebuilding on restore. Hidden correctness and performance remain unverified."
+  ],
+  "prompt_bytes": 7717,
+  "provider": "openai",
+  "requested_model": "gpt-6.1-sol",
+  "status": "completed",
+  "tool_schema_bytes": 642,
+  "unexpected_capabilities": [],
+  "usage": {
+    "last": {
+      "cacheWriteInputTokens": 0,
+      "cachedInputTokens": 2816,
+      "inputTokens": 2991,
+      "outputTokens": 47,
+      "reasoningOutputTokens": 0,
+      "totalTokens": 3038
+    },
+    "modelContextWindow": 258400,
+    "total": {
+      "cacheWriteInputTokens": 0,
+      "cachedInputTokens": 2816,
+      "inputTokens": 7865,
+      "outputTokens": 936,
+      "reasoningOutputTokens": 0,
+      "totalTokens": 8801
+    }
+  }
+}

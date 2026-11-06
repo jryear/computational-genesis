@@ -1,0 +1,52 @@
+{
+  "frozen_evaluator_unchanged": true,
+  "selected_source_hashes_match": true,
+  "trials": [
+    {
+      "file": "0-baseline.json",
+      "sha256": "7c0de9a7cb74f48a7abebbb20ea5248899f2633d5e53eea850233ef1710b0ade",
+      "role": "baseline",
+      "repetition": 0,
+      "responses": 790
+    },
+    {
+      "file": "0-inventor.json",
+      "sha256": "f12736d00a27125699beb6779cd6138b445186d19d3c0c2146f08f31ffe39a5b",
+      "role": "inventor",
+      "repetition": 0,
+      "responses": 790
+    },
+    {
+      "file": "1-baseline.json",
+      "sha256": "741cdd98a0f659a401398b18507c0f241ac47a5952235567a022572e90d98f66",
+      "role": "baseline",
+      "repetition": 1,
+      "responses": 790
+    },
+    {
+      "file": "1-inventor.json",
+      "sha256": "6ad2e58be214961ba5a0eb67eefe491609af50f08d6f19f646f45b2a3c901e0f",
+      "role": "inventor",
+      "repetition": 1,
+      "responses": 790
+    },
+    {
+      "file": "2-baseline.json",
+      "sha256": "45a7aa68c36fa9641782eaff4ba060fcb5188fb28a1ff52b032f3424fe3896bb",
+      "role": "baseline",
+      "repetition": 2,
+      "responses": 790
+    },
+    {
+      "file": "2-inventor.json",
+      "sha256": "77a19a344d7e2e4e0668d7d5f825ef8650e5b7987d4b4c920865a7908ae483b5",
+      "role": "inventor",
+      "repetition": 2,
+      "responses": 790
+    }
+  ],
+  "compared_responses": 4740,
+  "source_and_artifact_credential_pattern_findings": [],
+  "owned_containers_remaining": [],
+  "main_unchanged": true
+}

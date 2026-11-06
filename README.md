@@ -1,5 +1,13 @@
 # Objective Lab
 
+The current research experiment is **Computational Genesis — Lab 001**.
+Its [executed result](RESULTS.md) falsified the preregistered joint improvement claim
+for the tested pair while both implementations passed correctness and recovery.
+Start with [HYPOTHESIS.md](HYPOTHESIS.md), [SUBSTRATE.md](SUBSTRATE.md),
+[EVALUATION.md](EVALUATION.md), [ARCHITECTURE.md](ARCHITECTURE.md) and
+[RUNBOOK.md](RUNBOOK.md). Lab 001 lives in `genesis/`; the original experiment below
+is preserved as a historical pilot and is not Lab 001 evidence.
+
 A local, isolated experiment in computation through verified state transitions.
 See [the executed results](docs/RESULTS.md) for the current evidence and its limits.
 

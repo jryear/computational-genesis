@@ -1,0 +1,11 @@
+{
+  "candidate": {
+    "explanation": "Conventional dictionary-backed ledger with immutable request receipts and an incremental Kahn dependency scheduler. Checkpoints use standard pickle plus zlib; restore rebuilds transient dependency indexes from canonical definitions and completed values.",
+    "id": "baseline-1",
+    "sha256": "ffb79330983afcfbd29b330b4827fe5a760881ddea1d63d76f328ae8c37e4577"
+  },
+  "development_seconds": 24.52408929198282,
+  "role": "baseline",
+  "selection_mode": "explicit",
+  "submission_count": 1
+}

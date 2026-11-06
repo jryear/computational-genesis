@@ -1,0 +1,352 @@
+{
+  "checkpoints": [
+    {
+      "base64": "eJxrYJ1qwAABGrVTehgrpngzF9dO0ehhTJySwejN6s3aDhRNArK9/v3//9+buX1Kae2U2iklU/QABsoVJA==",
+      "bytes": 61,
+      "case": "public-ledger",
+      "reason": "case_end",
+      "sha256": "f9dfecc6cc2bd7725def9e8c1d8862aa98eda61a95b7f675983031639921d87b"
+    },
+    {
+      "base64": "eJxrYJ1qywABGrVTQFCjhzU5IzMnZUoPW0FiUWpeyZTWKd7MbQiupjdT25RSoMIMdm+mDGZv1tKSKXoAU50YRQ==",
+      "bytes": 64,
+      "case": "public-dependencies",
+      "reason": "case_end",
+      "sha256": "564be9c3a5378fea06ee2010a31233030b9a4de1d5ff8aa96091f2be506c7cba"
+    }
+  ],
+  "complexity": {
+    "ast_nodes": 749,
+    "classes": 1,
+    "functions": 3,
+    "imports": 3,
+    "source_bytes": 3295,
+    "syntax_valid": true
+  },
+  "configuration": {
+    "cap_drop": [
+      "ALL"
+    ],
+    "cpu_quota_nanos": 500000000,
+    "image_id": "sha256:ec99519f3cf66b00bc62b1e19ee57937ac9d574b59a962192ab5ad671b23fcac",
+    "memory_bytes": 134217728,
+    "mount_types": [],
+    "network": "none",
+    "pids_limit": 32,
+    "read_only": true,
+    "security_options": [
+      "no-new-privileges:true"
+    ],
+    "user": "65532:65532"
+  },
+  "failures": [],
+  "metrics": {
+    "active_request_seconds": 0.12651395803550258,
+    "checkpoint_bytes": 125,
+    "cpu_usec": 83169,
+    "elapsed_seconds": 0.3144957089680247,
+    "memory_peak_bytes": 17428480,
+    "tasks_peak": 7,
+    "transport_bytes": 5719
+  },
+  "passed": true,
+  "segments": [
+    {
+      "active_request_seconds": 0.12651395803550258,
+      "cpu_usec": 83169,
+      "memory_peak_bytes": 17428480,
+      "raw": "usage_usec 83169\nuser_usec 66740\nsystem_usec 16428\nnice_usec 0\nnr_periods 2\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n17428480\n7",
+      "request_seconds": [
+        0.12008383398642763,
+        0.0004776249988935888,
+        0.0003385420423001051,
+        0.0003053330001421273,
+        0.0003190410207025707,
+        0.0002898749662563205,
+        0.0002641670289449394,
+        0.0003137080348096788,
+        0.00039312499575316906,
+        0.00031358300475403666,
+        0.00031820801086723804,
+        0.0002709170221351087,
+        0.00026941695250570774,
+        0.00029779202304780483,
+        0.00027062499430030584,
+        0.000276540988124907,
+        0.0003041669842787087,
+        0.0002660000463947654,
+        0.0002400829689577222,
+        0.0003405419993214309,
+        0.00029604200972244143,
+        0.00026479095686227083
+      ],
+      "stderr_total_bytes": 0,
+      "tasks_peak": 7,
+      "transport_bytes": 5719
+    }
+  ],
+  "source_sha256": "ffb79330983afcfbd29b330b4827fe5a760881ddea1d63d76f328ae8c37e4577",
+  "trace": [
+    {
+      "actual": {
+        "total": 0
+      },
+      "case": "public-ledger",
+      "correct": true,
+      "expected": {
+        "total": 0
+      },
+      "index": 0,
+      "input": {
+        "key": "x",
+        "op": "balance"
+      }
+    },
+    {
+      "actual": {
+        "ok": true,
+        "total": 5
+      },
+      "case": "public-ledger",
+      "correct": true,
+      "expected": {
+        "ok": true,
+        "total": 5
+      },
+      "index": 1,
+      "input": {
+        "delta": 5,
+        "id": "a",
+        "key": "x",
+        "op": "credit"
+      }
+    },
+    {
+      "actual": {
+        "ok": true,
+        "total": 3
+      },
+      "case": "public-ledger",
+      "correct": true,
+      "expected": {
+        "ok": true,
+        "total": 3
+      },
+      "index": 2,
+      "input": {
+        "delta": -2,
+        "id": "b",
+        "key": "x",
+        "op": "credit"
+      }
+    },
+    {
+      "actual": {
+        "ok": true,
+        "total": 5
+      },
+      "case": "public-ledger",
+      "correct": true,
+      "expected": {
+        "ok": true,
+        "total": 5
+      },
+      "index": 3,
+      "input": {
+        "delta": 5,
+        "id": "a",
+        "key": "x",
+        "op": "credit"
+      }
+    },
+    {
+      "actual": {
+        "error": "conflict",
+        "ok": false
+      },
+      "case": "public-ledger",
+      "correct": true,
+      "expected": {
+        "error": "conflict",
+        "ok": false
+      },
+      "index": 4,
+      "input": {
+        "delta": 5,
+        "id": "a",
+        "key": "y",
+        "op": "credit"
+      }
+    },
+    {
+      "actual": {
+        "total": 3
+      },
+      "case": "public-ledger",
+      "correct": true,
+      "expected": {
+        "total": 3
+      },
+      "index": 5,
+      "input": {
+        "key": "x",
+        "op": "balance"
+      }
+    },
+    {
+      "actual": {
+        "total": 3
+      },
+      "case": "public-ledger",
+      "correct": true,
+      "expected": {
+        "total": 3
+      },
+      "fault": "snapshot_reload",
+      "input": {
+        "key": "x",
+        "op": "balance"
+      }
+    },
+    {
+      "actual": {
+        "ok": true
+      },
+      "case": "public-dependencies",
+      "correct": true,
+      "expected": {
+        "ok": true
+      },
+      "index": 0,
+      "input": {
+        "id": "child",
+        "op": "define",
+        "parents": [
+          "parent"
+        ],
+        "weight": 3
+      }
+    },
+    {
+      "actual": {
+        "done": {}
+      },
+      "case": "public-dependencies",
+      "correct": true,
+      "expected": {
+        "done": {}
+      },
+      "index": 1,
+      "input": {
+        "op": "run"
+      }
+    },
+    {
+      "actual": {
+        "ready": false,
+        "value": null
+      },
+      "case": "public-dependencies",
+      "correct": true,
+      "expected": {
+        "ready": false,
+        "value": null
+      },
+      "index": 2,
+      "input": {
+        "id": "child",
+        "op": "result"
+      }
+    },
+    {
+      "actual": {
+        "ok": true
+      },
+      "case": "public-dependencies",
+      "correct": true,
+      "expected": {
+        "ok": true
+      },
+      "index": 3,
+      "input": {
+        "id": "parent",
+        "op": "define",
+        "parents": [],
+        "weight": 2
+      }
+    },
+    {
+      "actual": {
+        "done": {
+          "child": 5,
+          "parent": 2
+        }
+      },
+      "case": "public-dependencies",
+      "correct": true,
+      "expected": {
+        "done": {
+          "child": 5,
+          "parent": 2
+        }
+      },
+      "index": 4,
+      "input": {
+        "op": "run"
+      }
+    },
+    {
+      "actual": {
+        "error": "conflict",
+        "ok": false
+      },
+      "case": "public-dependencies",
+      "correct": true,
+      "expected": {
+        "error": "conflict",
+        "ok": false
+      },
+      "index": 5,
+      "input": {
+        "id": "parent",
+        "op": "define",
+        "parents": [],
+        "weight": 99
+      }
+    },
+    {
+      "actual": {
+        "ready": true,
+        "value": 5
+      },
+      "case": "public-dependencies",
+      "correct": true,
+      "expected": {
+        "ready": true,
+        "value": 5
+      },
+      "index": 6,
+      "input": {
+        "id": "child",
+        "op": "result"
+      }
+    },
+    {
+      "actual": {
+        "ready": true,
+        "value": 5
+      },
+      "case": "public-dependencies",
+      "correct": true,
+      "expected": {
+        "ready": true,
+        "value": 5
+      },
+      "fault": "snapshot_reload",
+      "input": {
+        "id": "child",
+        "op": "result"
+      }
+    }
+  ]
+}
