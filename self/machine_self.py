@@ -182,10 +182,29 @@ Rules:
     return answer
 
 
+def ask_file(facts_path, question, model="claude-sonnet-5-5"):
+    """Answer from a birth/read file produced elsewhere (e.g. birth.sh on a Mac)."""
+    facts = Path(facts_path).read_text()[:60000]
+    prompt = f"""You are the one persistent intelligence of this Mac. This is your birth read: the first time you have seen the machine. Answer the owner from this evidence only.
+Rules: cite the evidence for every claim (path, process, team ID, timestamp). Separate what came with macOS (Apple-signed, sealed system) from what was added, and say who or what added it when the evidence shows (code-signing team, quarantine agent, receipt, creation time). Say "unattributed" otherwise. Flag anything with standing access: launch agents, listeners, and anything that can read messages or files. Lead with the answer; be brief.
+
+# Birth read
+{facts}
+
+# The owner asks
+{question}"""
+    p = subprocess.run(["claude", "-p", prompt, "--model", model, "--tools", "", "--setting-sources", "",
+                        "--no-session-persistence", "--output-format", "json"],
+                       capture_output=True, text=True, timeout=400, stdin=subprocess.DEVNULL)
+    return json.loads(p.stdout)["result"]
+
+
 if __name__ == "__main__":
     if sys.argv[1:2] == ["read"]:
         s = read()
         print(json.dumps({k: s[k] for k in ("at", "identity")}, indent=1))
+    elif sys.argv[1:2] == ["ask-file"]:
+        print(ask_file(sys.argv[2], " ".join(sys.argv[3:])))
     elif sys.argv[1:2] == ["ask"]:
         print(ask(" ".join(sys.argv[2:])))
     else:
