@@ -1,0 +1,23 @@
+C1 PASS  C2 PASS  S1'' {'true': 0, 'W1': 0, 'W2': 0, 'W4': 0} -> PASS
+
+realistic (expensive evaluations, median of 5 seeds; best baseline 940 = content_sharded)
+  content            17536  ratio 18.66  compute=17536 verify=0 audit=0
+  content_sharded      940  ratio 1.00  compute=940 verify=0 audit=0
+  semantic_trusted     754  ratio 0.80  compute=754 verify=0 audit=0
+  semantic_verified   2192  ratio 2.33  compute=754 verify=608 audit=830
+  targeted_a10        1465  ratio 1.56  compute=754 verify=608 audit=113
+  targeted_a25        1523  ratio 1.62  compute=754 verify=608 audit=162  <- E3 bound 0.8: FAIL
+  targeted_a50        1538  ratio 1.64  compute=754 verify=608 audit=183
+
+relevant_only (expensive evaluations, median of 5 seeds; best baseline 990 = content_sharded)
+  content            19120  ratio 19.31  compute=19120 verify=0 audit=0
+  content_sharded      990  ratio 1.00  compute=990 verify=0 audit=0
+  semantic_trusted     990  ratio 1.00  compute=990 verify=0 audit=0
+  semantic_verified   2492  ratio 2.52  compute=990 verify=608 audit=894
+  targeted_a10        1598  ratio 1.61  compute=990 verify=608 audit=0
+  targeted_a25        1598  ratio 1.61  compute=990 verify=608 audit=0  <- E4 bound 1.1: FAIL
+  targeted_a50        1598  ratio 1.61  compute=990 verify=608 audit=0
+
+Controls passed. S1''=PASS E3=FAIL E4=FAIL
+
+[exited with code 0]
